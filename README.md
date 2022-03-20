@@ -8,10 +8,11 @@
 
 ## Overview
 ### Description
-App designed to connect Farmer's with their customers through an easy to use display of farmer inventory and stock. App will incorporate communication between users and farmers, as well as a map that allows users to see where and when Farmer's markets will be open.
+The app is designed to connect Farmers with their customers through an easy-to-use display of farmer inventory and stock. The app will incorporate communication between users and farmers, as well as a map that allows users to see where and when Farmer’s markets will be open.
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
+[//]: # ([Evaluation of your app across the following attributes])
+
 - **Category:** Shopping
 - **Mobile:** Allows for users to quickly view and see real time changes to a vendor's inventory, as well as utilize a map to find where Farmer's markets are and when they are open.
 - **Story:** Provides Purdue residents an easy gateway into going to Farmer's markets, while also offering an opportunity for vendors to have another way to sell their goods.
@@ -41,29 +42,49 @@ App designed to connect Farmer's with their customers through an easy to use dis
 
 ### 2. Screen Archetypes
 
-* Home screen
-   * [list associated required story here]
-   * ...
+* Vendor screen
+   * Provides a list of all vendors that are coming to the next farmers' market.
+ 
+* Item screen
+   * Provides a list of all items that available for the next farmers' market.
+
+* Map screen
+    * Shows through google map with pin on the vendors' stands.
+    * Allows users to check vendors profile through the pin.
+
+* Message screen
+    * Allows users to send/receive message from another user.
+
+* Login
+    * Allows users choose account type and login to their accounts
+
 * Register
-   * [list associated required story here]
-   * ...
+    * Allows users register for a new account
+
+* Customer setting screen
+    * Allows customers(a sub-class of Users) can modify their personal information and preference. 
+    * They could upload/change profile names and pictures and modify their favourite items/vendors.
+
+* Vendor setting screen
+    * Allows vendors(a sub-class of Users) use this area to promote their product.
+    * They could add stories, add new items, upload pictures, update information. 
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Vendors
+* Items
+* Map
+* Message
+* Profile
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* No forced log-in, starts the app with map screen.
+* Profile 
+    * Profile -> login -> vendor/customer setting 
+    * Profile -> register if no login available
 
 ## Wireframe
 <img src="https://i.imgur.com/Cdl34oO.png" width=600>

@@ -83,7 +83,7 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 
 * No forced log-in, starts the app with map screen.
 * Profile 
-    * Profile -> login -> vendor/customer setting 
+    * Profile -> login -> vendor/customer homepage -> vendor/customer setting 
     * Profile -> register if no login available
 
 ## Wireframe
@@ -91,8 +91,10 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 
 
 ### [BONUS] Digital Wireframes & Mockups
+![](https://i.imgur.com/kZ6U5GM.png)
 
 ### [BONUS] Interactive Prototype
+[Figma Protytpye](https://www.figma.com/proto/gnT4JnrHm92UqAGqXoHSuA/Farmer's-Market?page-id=0%3A1&node-id=3%3A51&viewport=241%2C48%2C0.49&scaling=scale-down&starting-point-node-id=3%3A51)
 
 ## Schema 
 [This section will be completed in Unit 9]

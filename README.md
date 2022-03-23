@@ -96,10 +96,39 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 ### [BONUS] Interactive Prototype
 [Figma Protytpye](https://www.figma.com/proto/gnT4JnrHm92UqAGqXoHSuA/Farmer's-Market?page-id=0%3A1&node-id=3%3A51&viewport=241%2C48%2C0.49&scaling=scale-down&starting-point-node-id=3%3A51)
 
-## Schema 
-[This section will be completed in Unit 9]
+## Schema
 ### Models
-[Add table of models]
+
+#### Users
+| Column Name     | Type            | Description     |
+| --------------- | --------------- | --------------- |
+| user_id         | int             | The id of the user  |
+| email_address   | varchar(255)    | The email address of the user |
+| salted_password | varchar(255)    | The hashed password used for logging in |
+| user_type       | enum            | Vendor or Customer |
+| name            | varchar(255)    | The full name of the user |
+| profile_picture | blob(256000)    | Binary data for profile picture stored as base-64 encoded png/jpeg |
+| phone_number    | varchar(20)     | Phone number of the user |
+
+#### Sessions
+| Column Name     | Type            | Description     |
+| --------------- | --------------- | --------------- |
+| session_id      | int             | The id of the session |
+| user_id         | int             | The id of the user logged in (refers to the Users table) |
+| session_code    | varchar(64)     | The code used as an authentication token for the API. |
+
+#### Vendors
+| Column Name        | Type            | Description     |
+| ---------------    | --------------- | --------------- |
+| vendor_id          | int             | The id of the vendor |
+| owner_user_id      | int             | The id of the user that is the vendor (see users) |
+| background_picture | blob(1000000)   | The base-64 encoded png/jpeg for the background picture of the vendor |
+| description        | text(1000)      | The description of the vendor |
+| longitude          | decimal(2, 6)   | The longitude of the vendor's location |
+| latitude           | decimal(2, 6)   | The latitude of the vendor's location |
+
+
+
 ### Networking
 - Login
     - Login Request
@@ -136,6 +165,3 @@ The app is designed to connect Farmers with their customers through an easy-to-u
     - Get Good Info (param: selected good id)
     - Modify Good Info (param: inputed values and id)
     - If want to delete, use Modify Good Info with delete param.
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]

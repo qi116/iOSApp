@@ -124,8 +124,8 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 | owner_user_id      | int             | The id of the user that is the vendor (see users) |
 | background_picture | blob(1000000)   | The base-64 encoded png/jpeg for the background picture of the vendor |
 | description        | text(1000)      | The description of the vendor |
-| longitude          | decimal(2, 6)   | The longitude of the vendor's location |
-| latitude           | decimal(2, 6)   | The latitude of the vendor's location |
+| longitude          | decimal(9, 6)   | The longitude of the vendor's location |
+| latitude           | decimal(9, 6)   | The latitude of the vendor's location |
 
 #### Goods
 | Column Name        | Type            | Description     |

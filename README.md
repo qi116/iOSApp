@@ -127,6 +127,41 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 | longitude          | decimal(2, 6)   | The longitude of the vendor's location |
 | latitude           | decimal(2, 6)   | The latitude of the vendor's location |
 
+#### Goods
+| Column Name        | Type            | Description     |
+| ---------------    | --------------- | --------------- |
+| good_id            | int             | The id of the good |
+| vendor_id          | int             | The id of the vendor that has the good |
+| name               | var(64)         | The name of the good |
+| description        | text(1000)      | The description of the good |
+| stock              | int             | The amount of available stock |
+| picture            | blob(256000)    | The base-64 encoded png/jpeg for the picture of the good |
+| good_type          | int             | The index of the category that the good is in |
+
+#### Reviews
+| Column Name        | Type            | Description     |
+| ---------------    | --------------- | --------------- |
+| review_id          | int             | The id of the review |
+| good_id            | int             | The id of the good that the review is for |
+| user_id            | int             | The id of the user that made the review |
+| description        | Text(1000)      | The text of the review itself |
+| stars              | int             | The amount of stars that the review gives |
+
+#### Favorites
+| Column Name        | Type            | Description     |
+| ---------------    | --------------- | --------------- |
+| favorite_id        | int             | The id of the favorite |
+| user_id            | int             | The id of the user that favorited the good |
+| good_id            | int             | The id of the good that was favorited |
+
+#### Messages
+| Column Name        | Type            | Description     |
+| ---------------    | --------------- | --------------- |
+| message_id         | int             | The id of the message |
+| sender_user_id     | int             | The user id of the sender |
+| recipient_user_id  | int             | The user id of the recipient |
+| message            | varchar(255)    | The text of the message itself |
+| time_sent          | datetime        | The time and date the message was sent |
 
 
 ### Networking

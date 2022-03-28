@@ -165,13 +165,14 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 
 
 ### Networking
-- Login
-    - Login Request
-- Signup 
-    - Signup Request
+- Login page
+    - Login
+- Signup page
+    - Signup
 - Home page
     - Get Vendors (param: search params, if given)
     - Get Favorites
+    - Logout
 - Vendor info page
     - Get Vendor Info (param: selected vendor id)
     - Get Goods (param: selected vendor id)

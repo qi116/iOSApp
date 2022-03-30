@@ -10,7 +10,7 @@ interface HelloRequestResponse {
 }
 
 export default wrapper.createHandler(
-    (body: HelloRequestBody, res: ExpressResponse<HelloRequestResponse>) => {
+    async (body: HelloRequestBody, res: ExpressResponse<HelloRequestResponse>) => {
         if(body.test) {
             res.respondSuccess({ val: body.test });
         } else {

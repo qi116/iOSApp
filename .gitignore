@@ -96,3 +96,12 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+
+# Custom Backend GitIgnores
+
+# Backend
+purdue-farmers-market-backend/node_modules
+purdue-farmers-market-backend/.next
+purdue-farmers-market-backend/build
+

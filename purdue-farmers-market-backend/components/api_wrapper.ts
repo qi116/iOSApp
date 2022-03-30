@@ -4,7 +4,7 @@ import {ExpressRequest, ExpressResponse} from "./typescript_types";
  * Used to create API endpoint functions.
  * Converts request bodies into json objects and
  */
-export function createHandler(callback: (body: any, res: ExpressResponse<any>) => void): (req: ExpressRequest, res: ExpressResponse) => void {
+export function createHandler(callback: (body: any, res: ExpressResponse<any>) => void): (req: ExpressRequest, res: ExpressResponse<any>) => void {
 	return (req: ExpressRequest, res: ExpressResponse<any>) => {
 		initializeAPIRequest(req, res);
 		callback(req.body, res);

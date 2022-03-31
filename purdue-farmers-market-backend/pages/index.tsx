@@ -5,13 +5,19 @@ import React from 'react'
 export default class Home extends React.Component {
 
     state = {
+        email: "hello",
+        password: "hello",
         api_page: "",
         form_data: "",
         response: {},
+        session_full_code: "",
     }
 
     api_fetch(api_page: string, body: string, callback: (res: any) => void): void {
         try {
+            if(this.state.session_full_code) {
+                body = body.substring(0, body.length-1) + (body.length != 2 ? "," : "") + '"session_full_code": "' + this.state.session_full_code + '"}';
+            }
             fetch("/api/" + api_page, {
         		method: "POST",
         		headers: {"Content-Type": "application/json"},
@@ -54,6 +60,7 @@ export default class Home extends React.Component {
     }
 
     render() {
+        var page = this;
         return (
           <div>
             <Head>
@@ -63,6 +70,42 @@ export default class Home extends React.Component {
             </Head>
 
             <main>
+                <label>
+                    Email Address
+                    <br />
+                    <input type="text" value={this.state.email} onChange={(elem) => {
+                        this.setState({email: elem.target.value})
+                    }} />
+                </label>
+                <br/>
+                <label>
+                    Password
+                    <br />
+                    <input type="text" value={this.state.password} onChange={(elem) => {
+                        this.setState({password: elem.target.value})
+                    }} />
+                </label>
+                <br/>
+                <button onClick={() => {
+                    this.api_fetch("user/login", JSON.stringify({email_address: this.state.email, password: this.state.password}), (response: any) => {
+                        if(response.success)
+                            page.setState({session_full_code: response.data.session_full_code});
+                        else
+                            page.setState({session_full_code: "Error. " + response.errorCode})
+                    });
+                }}>Login</button>
+                <br/>
+                <p>{this.state.session_full_code}</p>
+                <br/>
+                <button onClick={() => {
+                    this.api_fetch("user/logout", JSON.stringify({session_full_code: this.state.session_full_code}), (response: any) => {
+                        if(response.success)
+                            page.setState({session_full_code: "Logged Out"});
+                        else
+                            page.setState({session_full_code: "Error. " + response.errorCode})
+                    });
+                }}>Logout</button>
+                <br/>
                 <form onSubmit={this.handleSubmit(this)}>
                     <label>
                         API Page:

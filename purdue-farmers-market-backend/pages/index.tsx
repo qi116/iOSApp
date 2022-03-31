@@ -5,8 +5,8 @@ import React from 'react'
 export default class Home extends React.Component {
 
     state = {
-        email: "hello",
-        password: "hello",
+        email: "test",
+        password: "test",
         api_page: "",
         form_data: "",
         response: {},

@@ -142,3 +142,29 @@ export class MysqlInsertStmt {
 		);
 	}
 }
+
+
+export class MysqlDeleteStmt {
+	table: Table;
+	conditions: Array<string>;
+
+	constructor() {
+		this.conditions = [];
+	}
+
+	setTable(table: Table) : MysqlDeleteStmt {
+		this.table = table;
+		return this;
+	}
+
+	addCondition(condition: string) : MysqlDeleteStmt {
+		this.conditions.push(condition);
+		return this;
+	}
+
+	compileQuery() : MysqlStmt {
+		return new MysqlStmt(
+			"DELETE FROM " + this.table + " WHERE (" + this.conditions.join(") AND (") + ")"
+		);
+	}
+}

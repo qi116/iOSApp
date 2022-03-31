@@ -53,7 +53,7 @@ export default wrapper.createHandlerWithMysql(
                     return;
                 }
                 var result = results[0];
-                const valid_password = bcrypt.compare(body.password, result.salted_password);
+                const valid_password = await bcrypt.compare(body.password, result.salted_password);
                 if(!valid_password) {
                     // Invalid password
                     res.respondFail("LI-1");

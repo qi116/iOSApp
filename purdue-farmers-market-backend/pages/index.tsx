@@ -12,17 +12,15 @@ export default class Home extends React.Component {
 
     api_fetch(api_page: string, body: string, callback: (res: any) => void): void {
         try {
-            fetch("/api/"+api_page, {
+            fetch("/api/" + api_page, {
         		method: "POST",
         		headers: {"Content-Type": "application/json"},
-        		body: JSON.stringify(body),
+        		body: body,
         	})
         	.then((response) => {
-                console.log(response);
         		return response.json();
         	})
         	.then((res) => {
-                console.log(res);
         		if(!res) {
         			callback({"success":false, "loginNeeded":false, "errorCode":"AF-1"});
         			return;
@@ -47,6 +45,7 @@ export default class Home extends React.Component {
 
     handleSubmit(page: Home) {
         return (event: any) => {
+
             page.api_fetch(page.state.api_page, page.state.form_data, (response: any) => {
                 page.setState({response: response});
             });

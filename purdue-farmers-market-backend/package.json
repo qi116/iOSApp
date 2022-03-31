@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
     "@types/mysql": "^2.15.21",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "mysql": "^2.18.1",
     "next": "12.1.2",
     "react": "17.0.2",

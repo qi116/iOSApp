@@ -1,6 +1,21 @@
-import {ExpressRequest, ExpressResponse} from "./typescript_types";
+import {ExpressRequest, ExpressResponse, User} from "./typescript_types";
 import {MysqlSession, MysqlStmt, MysqlSelectStmt, Table} from './database';
 import * as database from "./database";
+import Cors from 'cors'
+
+export function initMiddleware(middleware) {
+  return (req, res) =>
+    new Promise((resolve, reject) => {
+      middleware(req, res, (result) => {
+        if (result instanceof Error) {
+          return reject(result)
+        }
+        return resolve(result)
+      })
+    })
+}
+
+const cors = initMiddleware(Cors({methods: ['GET', 'POST'],}))
 
 /*
  * Used to create basic API endpoint functions.
@@ -8,6 +23,7 @@ import * as database from "./database";
  */
 export function createHandler(callback: (body: any, res: ExpressResponse<any>) => Promise<void>): (req: ExpressRequest, res: ExpressResponse<any>) => Promise<void> {
 	return async (req: ExpressRequest, res: ExpressResponse<any>) => {
+		await cors(req, res);
 		initializeAPIRequest(req, res);
 		await callback(req.body, res);
 	}
@@ -24,22 +40,30 @@ export function createHandlerWithMysql(callback: (body: any, res: ExpressRespons
 		try {
 			 session = await database.mysqlGetSession();
 		} catch(e) {
-			console.log(e);
+			res.respondException(e, "W-1");
 			return;
 		}
 		try {
 			await callback(body, res, session);
 		} catch(e) {
-			console.log(e);
+			res.respondException(e, "W-2");
 		}
 		session.release();
 	});
 }
 
-var mysqlStmtSelectUser: MysqlStmt = new MysqlSelectStmt()
+var mysqlStmtFindSession: MysqlStmt = new MysqlSelectStmt()
 	.setTable(Table.Sessions)
 	.joinTable(Table.Users, "users.user_id = sessions.user_id")
-	.setFields(["users.user_id", "users.name"])
+	.joinTable(Table.Vendors, "users.user_id = sessions.user_id")
+	.setFields([
+		"sessions.session_id",
+		"users.user_id",
+		"users.user_type",
+		"users.name",
+		"(vendors.vendor_id IS NOT NULL) AS user_is_vendor"
+	])
+	.addCondition("sessions.session_id = ?")
 	.addCondition("sessions.session_code = ?")
 	.compileQuery();
 
@@ -48,36 +72,47 @@ var mysqlStmtSelectUser: MysqlStmt = new MysqlSelectStmt()
  * Converts request bodies into json objects, adds response functions
  * and opens a connection to a mysql server.
  */
-
-export function createHandlerWithLogin(callback: (body: any, res: ExpressResponse<any>, mysqlSession: MysqlSession, user: null) => Promise<void>): (req: ExpressRequest, res: ExpressResponse<any>) => Promise<void> {
-	return createHandlerWithMysql(async (body: any, res: ExpressResponse<any>) => {
-		var session: MysqlSession;
-		try {
-			 session = await database.mysqlGetSession();
-		} catch(e) {
-			console.log(e);
+export function createHandlerWithSession(callback: (body: any, res: ExpressResponse<any>, mysqlSession: MysqlSession, user: User) => Promise<void>): (req: ExpressRequest, res: ExpressResponse<any>) => Promise<void> {
+	return createHandlerWithMysql(async (body: any, res: ExpressResponse<any>, session: MysqlSession) => {
+		if(!body.session_full_code) {
+			res.respondFail("W-3");
 			return;
 		}
-
-		try {
-			await callback(body, res, session, null);
-		} catch(e) {
-			console.log(e);
-		}
-		session.release();
+		var session_id = body.session_full_code.split(":")[0];
+		var session_code = body.session_full_code.split(":")[1];
+		await mysqlStmtFindSession.execute(session, [session_id, session_code])
+			.then(async (result) => {
+				if(result.length == 0) {
+					// Invalid session code
+					res.respondFail("W-3");
+					return;
+				}
+				var user: User = result[0];
+				try {
+					await callback(body, res, session, user);
+				} catch(e) {
+					res.respondException(e, "W-4");
+				}
+			})
+			.catch((e) => {
+				// Should only occur if something
+				// is wrong with the sql query.
+				res.respondException(e, "W-5");
+			});
 	});
 }
 
 export function initializeAPIRequest(req: ExpressRequest, res: ExpressResponse<any>): void {
 	integrateResponseFunctions(res);
 	if(!req.body) {
-		res.respondFail("W-1");
+		res.respondFail("W-6");
 	}
+	/*
 	try {
 		req.body = JSON.parse(req.body);
 	} catch(e) {
-		res.respondException(e, "W-2");
-	}
+		res.respondException(e, "W-7");
+	}*/
 }
 
 export function integrateResponseFunctions(res: ExpressResponse<any>): void {
@@ -88,6 +123,7 @@ export function integrateResponseFunctions(res: ExpressResponse<any>): void {
 		resConst.responded = true;
 
 		resConst.status(400);
+		resConst.setHeader('Access-Control-Allow-Origin', '*');
 		resConst.setHeader('Content-Type', 'application/json');
 		if(msg) {
 			resConst.end(JSON.stringify({success: false, needLogin: false, errorCode: errorCode, data:{msg: msg}}));
@@ -101,6 +137,7 @@ export function integrateResponseFunctions(res: ExpressResponse<any>): void {
 		resConst.responded = true;
 
 		resConst.status(400);
+		resConst.setHeader('Access-Control-Allow-Origin', '*');
 		resConst.setHeader('Content-Type', 'application/json');
 		resConst.end(JSON.stringify({success: false, needLogin: true}));
 	}
@@ -111,6 +148,7 @@ export function integrateResponseFunctions(res: ExpressResponse<any>): void {
 
 		console.log(exception);
 		resConst.status(500);
+		resConst.setHeader('Access-Control-Allow-Origin', '*');
 		resConst.setHeader('Content-Type', 'application/json');
 		resConst.end(JSON.stringify({success: false, needLogin: false, errorCode: errorCode}));
 	}
@@ -121,11 +159,13 @@ export function integrateResponseFunctions(res: ExpressResponse<any>): void {
 
 		if(data) {
 			resConst.status(200);
+			resConst.setHeader('Access-Control-Allow-Origin', '*');
 			resConst.setHeader('Content-Type', 'application/json');
 			resConst.end(JSON.stringify({success: true, data: data}));
 			return;
 		} else {
 			resConst.status(200);
+			resConst.setHeader('Access-Control-Allow-Origin', '*');
 			resConst.setHeader('Content-Type', 'application/json');
 			resConst.end(JSON.stringify({success: true}));
 		}

@@ -15,3 +15,16 @@ export interface ExpressResponse<T> {
 
     responded: boolean;
 }
+
+export enum UserType {
+	USER = 1,
+	VENDOR = 2,
+}
+
+export interface User {
+	session_id: number;
+	user_id: number;
+	user_type: UserType;
+	name: string;
+	user_is_vendor: boolean;
+}

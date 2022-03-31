@@ -9,6 +9,8 @@ export var mysqlConnectionPool = mysql.createPool({
 	connectionLimit: 10,
 });
 
+console.log("Mysql Created");
+
 export var mysqlGetSession = () => {
 	return new Promise<MysqlSession>(function(resolve, reject) {
 		mysqlConnectionPool.getConnection(function(err, connection) {
@@ -22,7 +24,7 @@ export var mysqlGetSession = () => {
 }
 
 export interface MysqlSession {
-	query(query: string, bindings: Array<string>, callback: (error: any, results: any, fields: any) => void) : void;
+	query(query: string, bindings: Array<string | number | boolean>, callback: (error: any, results: any, fields: any) => void) : void;
 	release(): void;
 }
 
@@ -43,7 +45,7 @@ export class MysqlStmt {
         this.query = query;
     }
 
-    execute(mysqlSession: MysqlSession, bindings: Array<string>): Promise<any> {
+    execute(mysqlSession: MysqlSession, bindings: Array<string | number | boolean>): Promise<any> {
         var sqlStmt = this;
 		return new Promise<any>(function(resolve, reject) {
 			mysqlSession.query(sqlStmt.query, bindings, function(error, results, _) {
@@ -60,7 +62,7 @@ export class MysqlStmt {
 export class MysqlSelectStmt {
 
     table: Table;
-    fields: Array<string>;
+    fields: Array<string | number | boolean>;
     conditions: Array<string>;
 	joinedTables: Array<{
 		table: Table,
@@ -77,7 +79,7 @@ export class MysqlSelectStmt {
         return this;
     }
 
-    setFields(fields: Array<string>): MysqlSelectStmt {
+    setFields(fields: Array<string | number | boolean>): MysqlSelectStmt {
         this.fields = fields;
         return this;
     }
@@ -101,9 +103,42 @@ export class MysqlSelectStmt {
             " FROM " + this.table.toString() +
 			this.joinedTables.map(joinedTable =>
 				" LEFT JOIN " + joinedTable.table + " ON (" + joinedTable.linkCondition + ")"
-			) +
-            " WHERE " + this.conditions.map(cond => "(" + cond + ")").join(",");
+			).join("") +
+            " WHERE " + this.conditions.map(cond => "(" + cond + ")").join(" AND ");
         return new MysqlStmt(query);
     }
 
+}
+
+export class MysqlInsertStmt {
+	table: Table;
+	fields: Array<string>;
+	updateOnDuplicateKey: boolean;
+
+	constructor() {
+		this.fields = [];
+		this.updateOnDuplicateKey = false;
+	}
+
+	setTable(table: Table): MysqlInsertStmt {
+		this.table = table;
+		return this;
+	}
+	setFields(fields: Array<string>) : MysqlInsertStmt {
+		this.fields = fields;
+		return this;
+	}
+
+	setUpdateOnDuplicateKey(updateOnDuplicateKey: boolean) : MysqlInsertStmt {
+		this.updateOnDuplicateKey = updateOnDuplicateKey;
+		return this;
+	}
+
+	compileQuery() : MysqlStmt {
+		var vals = "?,".repeat(this.fields.length);
+		vals = vals.substring(0, vals.length-1);
+		return new MysqlStmt(
+			"INSERT INTO " + this.table + " (" + this.fields.join(",") + ") VALUES (" + vals + ")"+ (this.updateOnDuplicateKey ? " ON DUPLICATE KEY UPDATE" : "")
+		);
+	}
 }

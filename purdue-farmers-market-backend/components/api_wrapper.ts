@@ -75,7 +75,7 @@ var mysqlStmtFindSession: MysqlStmt = new MysqlSelectStmt()
 export function createHandlerWithSession(callback: (body: any, res: ExpressResponse<any>, mysqlSession: MysqlSession, user: User) => Promise<void>): (req: ExpressRequest, res: ExpressResponse<any>) => Promise<void> {
 	return createHandlerWithMysql(async (body: any, res: ExpressResponse<any>, session: MysqlSession) => {
 		if(!body.session_full_code) {
-			res.respondFail("W-3");
+            res.respondRequireLogin();
 			return;
 		}
 		var session_id = body.session_full_code.split(":")[0];
@@ -84,7 +84,7 @@ export function createHandlerWithSession(callback: (body: any, res: ExpressRespo
 			.then(async (result) => {
 				if(result.length == 0) {
 					// Invalid session code
-					res.respondFail("W-3");
+                    res.respondRequireLogin();
 					return;
 				}
 				var user: User = result[0];

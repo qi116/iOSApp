@@ -18,7 +18,7 @@ export default wrapper.createHandlerWithSession(
                 res.respondSuccess();
             })
             .catch((e) => {
-                res.respondException(e, "SO-1");
+                res.respondException(e, "LO-1");
             })
     }
 );

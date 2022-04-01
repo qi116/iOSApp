@@ -75,7 +75,7 @@ var mysqlStmtFindSession: MysqlStmt = new MysqlSelectStmt()
 export function createHandlerWithSession(callback: (body: any, res: ExpressResponse<any>, mysqlSession: MysqlSession, user: User) => Promise<void>): (req: ExpressRequest, res: ExpressResponse<any>) => Promise<void> {
 	return createHandlerWithMysql(async (body: any, res: ExpressResponse<any>, session: MysqlSession) => {
 		if(!body.session_full_code) {
-            res.respondRequireLogin();
+      res.respondRequireLogin("W-3");
 			return;
 		}
 		var session_id = body.session_full_code.split(":")[0];
@@ -84,20 +84,20 @@ export function createHandlerWithSession(callback: (body: any, res: ExpressRespo
 			.then(async (result) => {
 				if(result.length == 0) {
 					// Invalid session code
-                    res.respondRequireLogin();
+          res.respondRequireLogin("W-4");
 					return;
 				}
 				var user: User = result[0];
 				try {
 					await callback(body, res, session, user);
 				} catch(e) {
-					res.respondException(e, "W-4");
+					res.respondException(e, "W-5");
 				}
 			})
 			.catch((e) => {
 				// Should only occur if something
 				// is wrong with the sql query.
-				res.respondException(e, "W-5");
+				res.respondException(e, "W-6");
 			});
 	});
 }
@@ -105,14 +105,8 @@ export function createHandlerWithSession(callback: (body: any, res: ExpressRespo
 export function initializeAPIRequest(req: ExpressRequest, res: ExpressResponse<any>): void {
 	integrateResponseFunctions(res);
 	if(!req.body) {
-		res.respondFail("W-6");
+		res.respondFail("W-0");
 	}
-	/*
-	try {
-		req.body = JSON.parse(req.body);
-	} catch(e) {
-		res.respondException(e, "W-7");
-	}*/
 }
 
 export function integrateResponseFunctions(res: ExpressResponse<any>): void {
@@ -132,14 +126,14 @@ export function integrateResponseFunctions(res: ExpressResponse<any>): void {
 		}
 	}
 	// Runs when a user needs to login to access the specified page.
-	res.respondRequireLogin = () => {
+	res.respondRequireLogin = (errorCode: string) => {
 		if(resConst.responded) return;
 		resConst.responded = true;
 
 		resConst.status(400);
 		resConst.setHeader('Access-Control-Allow-Origin', '*');
 		resConst.setHeader('Content-Type', 'application/json');
-		resConst.end(JSON.stringify({success: false, needLogin: true}));
+		resConst.end(JSON.stringify({success: false, needLogin: true, errorCode: errorCode}));
 	}
 	// Run when an exception occurs.
 	res.respondException = (exception, errorCode) => {

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+    \PYG{n+nx}{email}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}test@example.com\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nx}{password}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}secr3t\PYGZus{}p3sw0rd\PYGZdq{}}\PYG{p}{,}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

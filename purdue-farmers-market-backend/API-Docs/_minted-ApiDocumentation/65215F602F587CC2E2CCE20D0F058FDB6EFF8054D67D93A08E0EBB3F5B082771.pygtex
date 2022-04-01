@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+    \PYG{n+nx}{success}: \PYG{k+kt}{false}\PYG{p}{,}
+    \PYG{n+nx}{errorCode}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}LI\PYGZhy{}1\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nx}{data}: \PYG{k+kt}{null}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

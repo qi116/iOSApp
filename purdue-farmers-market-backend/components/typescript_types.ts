@@ -5,7 +5,7 @@ export interface ExpressRequest {
 
 export interface ExpressResponse<T> {
 	respondFail(errorCode: string, data?: any): void;
-	respondRequireLogin(): void;
+	respondRequireLogin(errorCode: string): void;
 	respondException(error: any, errorCode: string): void;
 	respondSuccess(data?: T): void;
 

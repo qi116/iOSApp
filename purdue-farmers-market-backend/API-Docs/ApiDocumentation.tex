@@ -1,0 +1,234 @@
+\documentclass{article}[11pt]
+
+
+%\usepackage{tabto}
+%\usepackage{amsthm}
+%\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+
+\usepackage{minted}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{tabto}
+
+\pagestyle{empty}
+
+\textheight 9.1in
+\textwidth 6.5in \oddsidemargin -0.1in \evensidemargin -0.1in
+\topmargin -0.3in
+
+\begin{document}
+
+\vspace{.1in}
+
+\centerline{\textbf{Purdue Farmers Market App API Documentation}} \bigskip
+
+\textbf{Important: } \\ All API requests should be made to a server that is running the software under the path "http://ip:port/api/" (note the /api/). So, for example, if a api endpoint is specified in this document to have a location of "/user/login", that request should be sent to "http://ip:port/api/user/login". \\
+
+\textbf{Basic Data IO:} \\
+The API requests work via sending and receiving JSON data through HTTP POST requests. All request parameters should be sent under the HTTP request body, and response data will always be sent in the following format (if the page is valid):
+
+\begin{minted}[frame=single,
+               framesep=3mm,
+               linenos=true,
+               xleftmargin=21pt,
+               tabsize=4]{ts}
+{     
+    success: boolean,
+    errorCode: string, // Only will be here if success = false
+    data: { <page-response-data> } // Only will be here if success = true
+}
+\end{minted}
+
+There are two potential types of errors that can occur and result in an unsuccessful request. Exceptions and Failures. Exceptions are server-side problems that are most likely the result of a bug. Please contact the developer with the code to fix them. Failures are errors that occur because of invalid input parameters. Likely a field is missing or invalid, causing the failure to occur. Only occasionally will failures be the result of a server-side problem. \\
+
+Whenever an API endpoint has response parameters specified, they will be contained inside the "data" json object (in line 4 above). If it does not specify any response parameters, the "data" json object will be null, and you can get the result of the operation from the "success" boolean. \\
+
+\newpage
+
+\textbf{API Request/Response Example} \\
+
+As an example, if a login request was sent (see /user/login), you would send
+
+\begin{minted}[frame=single,
+               framesep=3mm,
+               linenos=true,
+               xleftmargin=21pt,
+               tabsize=4]{ts}
+{     
+    email: "test@example.com",
+    password: "secr3t_p3sw0rd",
+}
+\end{minted}
+
+And the response from the server would be 
+\begin{minted}[frame=single,
+               framesep=3mm,
+               linenos=true,
+               xleftmargin=21pt,
+               tabsize=4]{ts}
+{     
+    success: true,
+    errorCode: null,
+    data: {
+    	session_full_code: "1:facc853ea87acdf26852088777f33035"
+    }
+}
+\end{minted}
+
+But, if an error was to occur, the response would be
+\begin{minted}[frame=single,
+               framesep=3mm,
+               linenos=true,
+               xleftmargin=21pt,
+               tabsize=4]{ts}
+{     
+    success: false,
+    errorCode: "LI-1",
+    data: null
+}
+\end{minted}
+
+This is the basics of the API request/response structure.
+
+\newpage
+
+
+\newcommand{\ErrorsBasic}{
+
+\noindent
+\textbf{Error Codes:} \\
+W-0: Failure - Empty or null request body \\
+}
+
+\newcommand{\ErrorsMysql}{
+\ErrorsBasic
+W-1: Exception - An unknown error occurred in connecting to the database.  \\
+W-2: Exception - An unknown error occurred in the server.  \\
+}
+
+\newcommand{\ErrorsSession}{
+\ErrorsMysql
+W-3: Failure - session\_full\_code was empty or null.  \\
+W-4: Failure - session\_full\_code was invalid. Make sure its a valid session code received from /user/login.  \\
+W-5: Exception - An unknown error occurred in the server.  \\
+W-6: Exception - An unknown error occurred in finding the session.  \\
+}
+
+
+
+
+\noindent
+\textbf{\underline{Directories and API Endpoints}} \\
+
+\paragraph{/user}\textbf{ (Directory) }
+
+All API endpoints related to user accounts and session will go here.
+
+
+\paragraph{/user/login}\textbf{}
+
+Used for logging in and creating a user session with the given user account. \\
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+email\_address & string & Yes & The email address of the user you wish to login as \\
+\hline
+password & string & Yes & The associated password for the user with the specified email \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Notes} \\
+\hline
+session\_full\_code & string & The session code used for accessing methods specific to the user you are logged in as. \\
+& & Store this code in order to access other api endpoints that require a session code. \\
+\hline
+\end{tabular} \\
+
+\ErrorsMysql
+LI-1: Failure - Invalid email or password. \\
+LI-2: Exception - An unknown error occurred in creating a session. \\
+LI-3: Exception - An unknown error occurred in finding a user.
+
+
+
+\paragraph{/user/logout}\textbf{}
+
+Used to logout from the server. Attempting to use the session\_full\_code after getting a success from this endpoint will result in an authentication error.  \\
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+session\_full\_code & string & Yes & The session code for the session you wish to logout of \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters: \\
+None. Will return success if successful. \\
+
+\ErrorsSession
+LO-1: Exception - An unknown error occurred in logging out.
+
+
+\paragraph{/user/signup}\textbf{}
+
+Used to create an account that can be used for logging in.  \\
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+email & string & Yes & The email address for logg \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters:
+None. Will return success if successful.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

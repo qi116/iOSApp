@@ -59,17 +59,17 @@ export default wrapper.createHandlerWithMysql(
                     res.respondFail("LI-1");
                     return;
                 }
-        		var session_code = crypto.randomBytes(16).toString('hex');
+		        		var session_code = crypto.randomBytes(16).toString('hex');
 
-                await mysqlStmtCreateSession.execute(session, [result.user_id, session_code])
-                    .then((result) => {
-                        res.respondSuccess({session_full_code: result.insertId + ":" + session_code});
-                    }).catch((e) => {
-                        res.respondException(e, "LI-2");
-                    })
-            })
-            .catch((e) => {
-                res.respondException(e, "LI-3");
-            })
+		            await mysqlStmtCreateSession.execute(session, [result.user_id, session_code])
+		                .then((result) => {
+		                    res.respondSuccess({session_full_code: result.insertId + ":" + session_code});
+		                }).catch((e) => {
+		                    res.respondException(e, "LI-2");
+		                })
+		        })
+		        .catch((e) => {
+		            res.respondException(e, "LI-3");
+		        })
     }
 );

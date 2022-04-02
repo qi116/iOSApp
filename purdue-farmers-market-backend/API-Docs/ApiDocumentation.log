@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  1 APR 2022 22:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  1 APR 2022 22:46
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -341,11 +341,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
 \openout3 = `ApiDocumentation.pyg'.
 
 (./_minted-ApiDocumentation/default.pygstyle)
-runsystem(pygmentize -l ts -f latex -P commandprefix=PYG -F tokenmerge -P strip
-nl=False -o _minted-ApiDocumentation/B2A2F0CCE15D335E09BBB90E463FC6556EFF8054D6
-7D93A08E0EBB3F5B082771.pygtex ApiDocumentation.pyg)...executed.
-
-
 (./_minted-ApiDocumentation/B2A2F0CCE15D335E09BBB90E463FC6556EFF8054D67D93A08E0
 EBB3F5B082771.pygtex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
@@ -369,27 +364,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
 \openout3 = `ApiDocumentation.pyg'.
 
-runsystem(pygmentize -l ts -f latex -P commandprefix=PYG -F tokenmerge -P strip
-nl=False -o _minted-ApiDocumentation/24454B08910B0FBF1165F9FA875397356EFF8054D6
-7D93A08E0EBB3F5B082771.pygtex ApiDocumentation.pyg)...executed.
-
 
 (./_minted-ApiDocumentation/24454B08910B0FBF1165F9FA875397356EFF8054D67D93A08E0
 EBB3F5B082771.pygtex)
 \openout3 = `ApiDocumentation.pyg'.
 
-runsystem(pygmentize -l ts -f latex -P commandprefix=PYG -F tokenmerge -P strip
-nl=False -o _minted-ApiDocumentation/67D157C84AAAFEC4BFD2C1D49D5A31D46EFF8054D6
-7D93A08E0EBB3F5B082771.pygtex ApiDocumentation.pyg)...executed.
-
 
 (./_minted-ApiDocumentation/67D157C84AAAFEC4BFD2C1D49D5A31D46EFF8054D67D93A08E0
 EBB3F5B082771.pygtex)
 \openout3 = `ApiDocumentation.pyg'.
-
-runsystem(pygmentize -l ts -f latex -P commandprefix=PYG -F tokenmerge -P strip
-nl=False -o _minted-ApiDocumentation/CB1349B4AEB9603B6AF263AE2FE6D9B16EFF8054D6
-7D93A08E0EBB3F5B082771.pygtex ApiDocumentation.pyg)...executed.
 
 
 (./_minted-ApiDocumentation/CB1349B4AEB9603B6AF263AE2FE6D9B16EFF8054D67D93A08E0
@@ -444,30 +427,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--190
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
 
-Overfull \hbox (83.67896pt too wide) in paragraph at lines 202--216
+Overfull \hbox (23.67885pt too wide) in paragraph at lines 203--217
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--216
+Underfull \hbox (badness 10000) in paragraph at lines 203--217
 
  []
 
-[3] [4] (./ApiDocumentation.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--248
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
+
+ []
+
+[4] (./ApiDocumentation.aux)
 runsystem(rm ApiDocumentation.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 6626 strings out of 478353
- 119980 string characters out of 5854635
- 464886 words of memory out of 5000000
- 24654 multiletter control sequences out of 15000+600000
+ 6617 strings out of 478353
+ 119176 string characters out of 5854635
+ 461886 words of memory out of 5000000
+ 24648 multiletter control sequences out of 15000+600000
  405773 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,7n,77p,507b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -475,11 +483,11 @@ Here is how much of TeX's memory you used:
 texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-tt10.pfb>
-Output written on ApiDocumentation.pdf (4 pages, 77745 bytes).
+sy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on ApiDocumentation.pdf (4 pages, 87036 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
- 25 compressed objects within 1 object stream
+ 47 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -191,6 +191,7 @@ None. Will return success if successful. \\
 \ErrorsSession
 LO-1: Exception - An unknown error occurred in logging out.
 
+\newpage
 
 \paragraph{/user/signup}\textbf{}
 
@@ -204,22 +205,48 @@ Request Parameters:
 \hline
 \textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
 \hline
-email\_address & string & Yes & \\
+email\_address & string & Yes & Email address (must be unique) \\
 \hline
 name & string & Yes & The first and last name of the user, will be shown to others. \\
 \hline
 password & string & Yes & Password used to log in. \\
 \hline
-user\_type & "user" | "vendor" & Yes & The type of the user, can either be normal user (consumer) or a vendor. \\
+user\_type & "user" $\vert$ "vendor" & Yes & The type of the user, can either be normal user or vendor. \\
 \hline
 \end{tabular} \\
 
 \noindent
-Response Parameters:
-None. Will return success if successful.
+Response Parameters: \\
+None. Will return success if successful. \\
+
+\ErrorsMysql
+SU-1: Failure - One of the parameters is missing/empty. \\
+SU-2: Failure - A user with that email address already exists. \\
+SU-3: Exception - An unknown error occurred in creating the user. \\
+SU-4: Exception - An unknown error occurred in looking for a duplicate.
 
 
+\paragraph{/user/verifysession}\textbf{}
 
+Attempts to validate if the session you are using is valid or not. Returns success if session is valid and user is properly logged in. \\
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+session\_full\_code & string & Yes & The session code for the session you wish to check \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters: \\
+None. Will return success if successful. \\
+
+\ErrorsSession
 
 
 

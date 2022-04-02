@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+    \PYG{n+nx}{success}: \PYG{k+kt}{boolean}\PYG{p}{,}
+    \PYG{n+nx}{needLogin}: \PYG{k+kt}{boolean}\PYG{p}{,} \PYG{c+c1}{// Will be set to true if login is needed}
+                        \PYG{c+c1}{// but a valid session\PYGZus{}full\PYGZus{}code was not provided.}
+    \PYG{n+nx}{errorCode}: \PYG{k+kt}{string}\PYG{p}{,} \PYG{c+c1}{// Only will be here if success = false}
+    \PYG{n+nx}{data}\PYG{o}{:} \PYG{p}{\PYGZob{}} \PYG{o}{\PYGZlt{}}\PYG{n+nx}{page}\PYG{o}{\PYGZhy{}}\PYG{n+nx}{response}\PYG{o}{\PYGZhy{}}\PYG{n+nx}{data}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZcb{}} \PYG{c+c1}{// Only will be here if success = true}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

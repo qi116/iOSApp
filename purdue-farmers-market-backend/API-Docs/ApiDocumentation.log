@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  1 APR 2022 22:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  1 APR 2022 22:31
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -341,113 +341,128 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
 \openout3 = `ApiDocumentation.pyg'.
 
 (./_minted-ApiDocumentation/default.pygstyle)
-(./_minted-ApiDocumentation/585C5F992124D902B612BB082E27359F6EFF8054D67D93A08E0
+runsystem(pygmentize -l ts -f latex -P commandprefix=PYG -F tokenmerge -P strip
+nl=False -o _minted-ApiDocumentation/A68FF8DDADF126F27EA45AEF0D7D96126EFF8054D6
+7D93A08E0EBB3F5B082771.pygtex ApiDocumentation.pyg)...executed.
+
+
+(./_minted-ApiDocumentation/A68FF8DDADF126F27EA45AEF0D7D96126EFF8054D67D93A08E0
 EBB3F5B082771.pygtex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
 \openout3 = `ApiDocumentation.pyg'.
-
-runsystem(pygmentize -l ts -f latex -P commandprefix=PYG -F tokenmerge -P strip
-nl=False -o _minted-ApiDocumentation/24454B08910B0FBF1165F9FA875397356EFF8054D6
-7D93A08E0EBB3F5B082771.pygtex ApiDocumentation.pyg)...executed.
 
 
 (./_minted-ApiDocumentation/24454B08910B0FBF1165F9FA875397356EFF8054D67D93A08E0
 EBB3F5B082771.pygtex)
 \openout3 = `ApiDocumentation.pyg'.
 
+runsystem(pygmentize -l ts -f latex -P commandprefix=PYG -F tokenmerge -P strip
+nl=False -o _minted-ApiDocumentation/4192B23E759D179F077E98B83FCC5DC26EFF8054D6
+7D93A08E0EBB3F5B082771.pygtex ApiDocumentation.pyg)...executed.
 
-(./_minted-ApiDocumentation/3407CAD57F47038B99FF24893F53C8DD6EFF8054D67D93A08E0
+
+(./_minted-ApiDocumentation/4192B23E759D179F077E98B83FCC5DC26EFF8054D67D93A08E0
 EBB3F5B082771.pygtex)
 \openout3 = `ApiDocumentation.pyg'.
 
+runsystem(pygmentize -l ts -f latex -P commandprefix=PYG -F tokenmerge -P strip
+nl=False -o _minted-ApiDocumentation/751C11E904833CD555B1F848D110E61B6EFF8054D6
+7D93A08E0EBB3F5B082771.pygtex ApiDocumentation.pyg)...executed.
 
-(./_minted-ApiDocumentation/65215F602F587CC2E2CCE20D0F058FDB6EFF8054D67D93A08E0
+
+(./_minted-ApiDocumentation/751C11E904833CD555B1F848D110E61B6EFF8054D67D93A08E0
 EBB3F5B082771.pygtex) [2]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 122
+LaTeX Font Info:    Trying to load font information for U+msa on input line 125
 .
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 122
+LaTeX Font Info:    Trying to load font information for U+msb on input line 125
 .
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 121--123
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--146
+Underfull \hbox (badness 10000) in paragraph at lines 139--149
 
  []
 
 
-Overfull \hbox (36.09142pt too wide) in paragraph at lines 150--159
+Overfull \hbox (36.09142pt too wide) in paragraph at lines 153--162
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--159
+Underfull \hbox (badness 10000) in paragraph at lines 153--162
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--182
+Underfull \hbox (badness 10000) in paragraph at lines 177--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--186
+Underfull \hbox (badness 10000) in paragraph at lines 186--189
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
 
  []
 
 
-Overfull \hbox (83.67896pt too wide) in paragraph at lines 198--212
+Overfull \hbox (83.67896pt too wide) in paragraph at lines 201--215
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--212
+Underfull \hbox (badness 10000) in paragraph at lines 201--215
 
  []
 
 [3]
-runsystem(rm _minted-ApiDocumentation/317BC0FFA8562A236B1C0AF8A489E9016EFF8054D
+runsystem(rm _minted-ApiDocumentation/585C5F992124D902B612BB082E27359F6EFF8054D
+67D93A08E0EBB3F5B082771.pygtex)...executed.
+
+runsystem(rm _minted-ApiDocumentation/3407CAD57F47038B99FF24893F53C8DD6EFF8054D
+67D93A08E0EBB3F5B082771.pygtex)...executed.
+
+runsystem(rm _minted-ApiDocumentation/65215F602F587CC2E2CCE20D0F058FDB6EFF8054D
 67D93A08E0EBB3F5B082771.pygtex)...executed.
 
  [4] (./ApiDocumentation.aux)
@@ -455,10 +470,10 @@ runsystem(rm ApiDocumentation.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 6620 strings out of 478353
- 119444 string characters out of 5854635
+ 6626 strings out of 478353
+ 119980 string characters out of 5854635
  464886 words of memory out of 5000000
- 24650 multiletter control sequences out of 15000+600000
+ 24654 multiletter control sequences out of 15000+600000
  405773 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,7n,77p,507b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -467,7 +482,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 tt10.pfb>
-Output written on ApiDocumentation.pdf (4 pages, 76195 bytes).
+Output written on ApiDocumentation.pdf (4 pages, 77767 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  25 compressed objects within 1 object stream

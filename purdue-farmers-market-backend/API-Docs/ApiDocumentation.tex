@@ -33,7 +33,7 @@ The API requests work via sending and receiving JSON data through HTTP POST requ
                linenos=true,
                xleftmargin=21pt,
                tabsize=4]{ts}
-{     
+{
     success: boolean,
     errorCode: string, // Only will be here if success = false
     data: { <page-response-data> } // Only will be here if success = true
@@ -55,19 +55,19 @@ As an example, if a login request was sent (see /user/login), you would send
                linenos=true,
                xleftmargin=21pt,
                tabsize=4]{ts}
-{     
-    email: "test@example.com",
+{
+    email\_address: "test@example.com",
     password: "secr3t_p3sw0rd",
 }
 \end{minted}
 
-And the response from the server would be 
+And the response from the server would be
 \begin{minted}[frame=single,
                framesep=3mm,
                linenos=true,
                xleftmargin=21pt,
                tabsize=4]{ts}
-{     
+{
     success: true,
     errorCode: null,
     data: {
@@ -82,7 +82,7 @@ But, if an error was to occur, the response would be
                linenos=true,
                xleftmargin=21pt,
                tabsize=4]{ts}
-{     
+{
     success: false,
     errorCode: "LI-1",
     data: null
@@ -200,7 +200,13 @@ Request Parameters:
 \hline
 \textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
 \hline
-email & string & Yes & The email address for logg \\
+email\_address & string & Yes & \\
+\hline
+name & string & Yes & The first and last name of the user, will be shown to others. \\
+\hline
+password & string & Yes & Password used to log in. \\
+\hline
+user\_type & "user" | "vendor" & Yes & The type of the user, can either be normal user (consumer) or a vendor. \\
 \hline
 \end{tabular} \\
 

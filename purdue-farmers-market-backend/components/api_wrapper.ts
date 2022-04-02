@@ -3,10 +3,10 @@ import {MysqlSession, MysqlStmt, MysqlSelectStmt, Table} from './database';
 import * as database from "./database";
 import Cors from 'cors'
 
-export function initMiddleware(middleware) {
-  return (req, res) =>
+export function initMiddleware(middleware: any) {
+  return (req: ExpressRequest, res: ExpressResponse<any>) =>
     new Promise((resolve, reject) => {
-      middleware(req, res, (result) => {
+      middleware(req, res, (result: any) => {
         if (result instanceof Error) {
           return reject(result)
         }
@@ -105,7 +105,7 @@ export function createHandlerWithSession(callback: (body: any, res: ExpressRespo
 export function initializeAPIRequest(req: ExpressRequest, res: ExpressResponse<any>): void {
 	integrateResponseFunctions(res);
 	if(!req.body) {
-		res.respondFail("W-0 " + req.method);
+		res.respondFail("W-0");
 	}
 }
 

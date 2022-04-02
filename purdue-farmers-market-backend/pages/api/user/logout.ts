@@ -8,7 +8,7 @@ var mysqlStmtRemoveSession: MysqlStmt = new MysqlDeleteStmt()
 	.addCondition("session_id = ?")
 	.compileQuery();
 
-// No expected request/response data.
+// No expected request/response data outside of session code.
 // Will return success if the user is successfully signed out
 
 export default wrapper.createHandlerWithSession(

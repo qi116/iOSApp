@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  1 APR 2022 22:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  1 APR 2022 22:29
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -365,11 +365,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--50
 \openout3 = `ApiDocumentation.pyg'.
 
 runsystem(pygmentize -l ts -f latex -P commandprefix=PYG -F tokenmerge -P strip
-nl=False -o _minted-ApiDocumentation/317BC0FFA8562A236B1C0AF8A489E9016EFF8054D6
+nl=False -o _minted-ApiDocumentation/24454B08910B0FBF1165F9FA875397356EFF8054D6
 7D93A08E0EBB3F5B082771.pygtex ApiDocumentation.pyg)...executed.
 
 
-(./_minted-ApiDocumentation/317BC0FFA8562A236B1C0AF8A489E9016EFF8054D67D93A08E0
+(./_minted-ApiDocumentation/24454B08910B0FBF1165F9FA875397356EFF8054D67D93A08E0
 EBB3F5B082771.pygtex)
 \openout3 = `ApiDocumentation.pyg'.
 
@@ -447,7 +447,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--212
  []
 
 [3]
-runsystem(rm _minted-ApiDocumentation/24454B08910B0FBF1165F9FA875397356EFF8054D
+runsystem(rm _minted-ApiDocumentation/317BC0FFA8562A236B1C0AF8A489E9016EFF8054D
 67D93A08E0EBB3F5B082771.pygtex)...executed.
 
  [4] (./ApiDocumentation.aux)
@@ -467,7 +467,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 tt10.pfb>
-Output written on ApiDocumentation.pdf (4 pages, 76427 bytes).
+Output written on ApiDocumentation.pdf (4 pages, 76195 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  25 compressed objects within 1 object stream

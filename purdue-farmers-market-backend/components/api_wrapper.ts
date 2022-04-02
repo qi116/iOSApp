@@ -105,7 +105,7 @@ export function createHandlerWithSession(callback: (body: any, res: ExpressRespo
 export function initializeAPIRequest(req: ExpressRequest, res: ExpressResponse<any>): void {
 	integrateResponseFunctions(res);
 	if(!req.body) {
-		res.respondFail("W-0");
+		res.respondFail("W-0 " + req.method);
 	}
 }
 

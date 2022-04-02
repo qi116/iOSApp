@@ -16,12 +16,18 @@ class APIGet {
 	
     //request.httpMethod = "POST"
     func test() {
-        let url = URL(string: "http://128.211.194.217:3000/api/hello")!
+        let url = URL(string: "http://128.211.194.217:3000/api/user/login")!
         var request = URLRequest(url:url)
         
-        let json: [String: Any] = ["message": "hello"]
+        let json: [String: Any] = ["email": "test", "password": "test"]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        //print(jsonData	)
         
+        /*var username = "test"
+        var password = "test"
+        
+        let body = "email_address=\(username)&password=\(password)";
+        let finalBody = body.data(using: .utf8)*/
         
         request.httpMethod = "POST"
         request.httpBody = jsonData
@@ -31,9 +37,9 @@ class APIGet {
             if let data = data {
                 //let image = UIImage(data: data)
                 //print(response)
-                let jsonData = try? JSONSerialization.jsonObject(with: data, options: [])
-                if let jsonData = jsonData as? [String: Any] {
-                    print(jsonData)
+                let jsonInfo = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let jsonInfo = jsonInfo as? [String: Any] {
+                    print(jsonInfo)
                 }
             } else if let error = error {
                 print("Error \(error)")

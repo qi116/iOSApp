@@ -28,7 +28,7 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 
 * Database with vendors and available items per vendor
 * Vendors can register account
-* User can log in and log out
+* User can log in and log out [Half complete]
 * Display of available items
 * Vendor can include image for item
 * Vendor can update items and availability

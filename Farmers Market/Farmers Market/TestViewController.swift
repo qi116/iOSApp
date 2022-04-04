@@ -20,7 +20,7 @@ class TestViewController: UIViewController {
 
     @IBAction func GetRequest(_ sender: Any) {
         let api = APIGet()
-        api.test()
+        print(api.login(user: "test", pass: "test"))
     }
     /*
     // MARK: - Navigation

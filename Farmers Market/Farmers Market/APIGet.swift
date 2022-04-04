@@ -37,6 +37,7 @@ class APIGet {
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let data = data {
@@ -44,9 +45,53 @@ class APIGet {
                 //print(response)
                 let jsonInfo = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let jsonInfo = jsonInfo as? [String: Any] {
-                    print(response)
+                    
                     print(jsonInfo)
                     
+                    
+                }
+            } else if let error = error {
+                print("Error \(error)")
+                
+            }
+            
+        }
+        task.resume()
+        
+    }
+    
+    func request(link: String, json: [String: Any]) -> [String: Any] {
+        let url = URL(string: link)!
+        var request = URLRequest(url:url)
+        
+        //let json = ["email_address": "test", "password": "test"]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+        //print(jsonData)
+        
+        /*var username = "test"
+        var password = "test"
+        
+        let body = "email_address=\(username)&password=\(password)";
+        let finalBody = body.data(using: .utf8)*/
+        
+        request.httpMethod = "POST"
+        
+        
+        
+        request.httpBody = jsonData
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        var result = ["empty" : "empty"] as [String: Any]
+        let sem = DispatchSemaphore.init(value: 0)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            defer {sem.signal()}
+            if let data = data {
+                //let image = UIImage(data: data)
+                //print(response)
+                let jsonInfo = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let jsonInfo = jsonInfo as? [String: Any] {
+                    print(jsonInfo)
+                    result = jsonInfo
                 }
             } else if let error = error {
                 print("Error \(error)")
@@ -54,8 +99,30 @@ class APIGet {
             
         }
         task.resume()
-        
+        sem.wait()
+        return result
     }
+    
+    /*
+     * Returns user string if succeeds. Returns "fail" if login failed
+     */
+    func login(user: String, pass: String) -> String{
+        let url = "http://128.211.194.217:3000/api/user/login"
+        let json = ["email_address": user, "password": pass]
+        let output = request(link: url, json: json)
+        if let exists = output["empty"] {
+            return "failed to reach server"
+        }
+        else if let code = output["data"] {
+            return (code as! [String:Any])["session_full_code"] as! String
+            
+        }
+        return "login failed" //configure this to work with different errors
+        
+    
+    }
+    
+    
 }
 
 

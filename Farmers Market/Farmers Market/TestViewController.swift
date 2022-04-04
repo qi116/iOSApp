@@ -18,16 +18,22 @@ class TestViewController: UIViewController {
     }
     
     var userid = ""
-
+    func success() {
+        print("yay")
+    }
+    func fail(output: String) {
+        print(output)
+    }
+    let api = APIGet()
     @IBAction func GetRequest(_ sender: Any) {
-        let api = APIGet()
-        userid = api.login(user: "h", pass: "test")
-        print(userid)
+        
+        api.login(user: "test", pass: "test", success: success, fail: fail)
+        //print(userid)
     }
     
     @IBAction func logout(_ sender: Any) {
-        let api = APIGet()
-        print(api.logout(id: userid))
+        
+        api.logout(success: success, fail: fail)
     }
     
     /*

@@ -10,7 +10,7 @@ import UIKit
 
 class APIGet {
     
-    
+    var sessionId = ""
     //URLRequest(url: url)
     //var request = URLRequest(url: url)
 	
@@ -60,7 +60,18 @@ class APIGet {
         
     }
     
-    func request(link: String, json: [String: Any]) -> [String: Any] {
+    func sendRequest() -> Void {
+        self.request(
+            link: "http://128.211.194.217/api/user/login",
+            json: ["email_address": "test", "password": "test"],
+            callback: { resData in
+            
+                print(resData["success"]);
+                
+        })
+    }
+    
+    func request(link: String, json: [String: Any], callback: @escaping([String: Any]) -> Void) -> Void {
         let url = URL(string: link)!
         var request = URLRequest(url:url)
         
@@ -81,64 +92,75 @@ class APIGet {
         request.httpBody = jsonData
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        var result = ["empty" : "empty"] as [String: Any]
-        let sem = DispatchSemaphore.init(value: 0)
+        //var result = ["empty" : "empty"] as [String: Any]
+        //let sem = DispatchSemaphore.init(value: 0)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            defer {sem.signal()}
+            //defer {sem.signal()}
+            print(data);
+            print(response);
+            print(error);
             if let data = data {
                 //let image = UIImage(data: data)
                 //print(response)
                 let jsonInfo = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let jsonInfo = jsonInfo as? [String: Any] {
                     print(jsonInfo)
-                    result = jsonInfo
+                    //result = jsonInfo
+                    callback(jsonInfo);
                 }
             } else if let error = error {
+                callback(["errorCode": "Connection fail"])
                 print("Error \(error)")
             }
             
         }
         task.resume()
-        sem.wait()
-        return result
+        //sem.wait()
+        //return result
     }
     
     /*
      * @params user, pass
      * Returns user id if succeeds. Returns "fail" if login failed
      */
-    func login(user: String, pass: String) -> String{
-        let url = "http://128.211.194.217:3000/api/user/login"
-        let json = ["email_address": user, "password": pass]
-        let output = request(link: url, json: json)
-        if let exists = output["empty"] {
-            return "failed to reach server"
-        }
-        else if let code = output["data"] {
-            return (code as! [String:Any])["session_full_code"] as! String
-            
-        }
-        return "login failed with error \(output["errorCode"] ?? "unknown error")" 
+    func login(user: String, pass: String, success:@escaping () -> Void, fail: @escaping(String) -> Void)	{
+        self.request(
+            link: "http://128.211.194.217:3000/api/user/login",
+            json: ["email_address": user, "password": pass],
+            callback: { output in
+                if let code = output["data"] {
+                    self.sessionId = (code as! [String:Any])["session_full_code"] as! String
+                    success()
+                }
+                else {
+                    fail(output["errorCode"] as! String)
+                }
+        })
+//        let url = "http://128.211.194.217:3000/api/user/login"
+//        let json = ["email_address": user, "password": pass]
         
-    
     }
     
-    func logout(id: String) -> String{
+    func logout(success: @escaping() -> Void, fail: @escaping(String) -> Void){
+        
+        
         let url = "http://128.211.194.217:3000/api/user/logout"
-        let json = ["session_full_code": id]
-        let output = request(link: url, json: json)
-        if let exists = output["empty"] {
-            return "failed to reach server"
-        }
-        if let success = output["success"] {
-            if ((success as! Int) == 1) {
-                return "Successfully logged out"
+        let json = ["session_full_code": sessionId]
+        
+        self.request(link: url, json: json, callback: {
+            output in
+            
+            if let val = output["success"] {
+                if ((val as! Int) == 1) {
+                    success()
+                    self.sessionId = ""
+                }
+                else {
+                    fail(output["errorCode"] as! String)
+                }
             }
-            else {
-                return "Could not log out with error \(output["errorCode"] ?? "unknown error")"
-            }
-        }
-        return "oops"
+            
+        })
         
     }
     

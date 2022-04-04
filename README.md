@@ -26,13 +26,13 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 
 **Required Must-have Stories**
 
-* Database with vendors and available items per vendor
-* Vendors can register account
-* User can log in and log out [Half complete]
-* Display of available items
-* Vendor can include image for item
-* Vendor can update items and availability
-* User can change their setting
+* Database with vendors and available items per vendor (Finished database setup)
+* Vendors can register account (Finished database setup)
+* User can log in and log out [Half complete] (Finished database setup)
+* Display of available items (Finished database setup)
+* Vendor can include image for item (Finished database setup)
+* Vendor can update items and availability (Finished database setup)
+* User can change their setting (Finished database setup)
 
 **Optional Nice-to-have Stories**
 

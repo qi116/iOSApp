@@ -104,7 +104,8 @@ class APIGet {
     }
     
     /*
-     * Returns user string if succeeds. Returns "fail" if login failed
+     * @params user, pass
+     * Returns user id if succeeds. Returns "fail" if login failed
      */
     func login(user: String, pass: String) -> String{
         let url = "http://128.211.194.217:3000/api/user/login"
@@ -117,9 +118,28 @@ class APIGet {
             return (code as! [String:Any])["session_full_code"] as! String
             
         }
-        return "login failed" //configure this to work with different errors
+        return "login failed with error \(output["errorCode"] ?? "unknown error")" 
         
     
+    }
+    
+    func logout(id: String) -> String{
+        let url = "http://128.211.194.217:3000/api/user/logout"
+        let json = ["session_full_code": id]
+        let output = request(link: url, json: json)
+        if let exists = output["empty"] {
+            return "failed to reach server"
+        }
+        if let success = output["success"] {
+            if ((success as! Int) == 1) {
+                return "Successfully logged out"
+            }
+            else {
+                return "Could not log out with error \(output["errorCode"] ?? "unknown error")"
+            }
+        }
+        return "oops"
+        
     }
     
     

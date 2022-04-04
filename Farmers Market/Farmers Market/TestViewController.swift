@@ -17,11 +17,19 @@ class TestViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    var userid = ""
 
     @IBAction func GetRequest(_ sender: Any) {
         let api = APIGet()
-        print(api.login(user: "test", pass: "test"))
+        userid = api.login(user: "h", pass: "test")
+        print(userid)
     }
+    
+    @IBAction func logout(_ sender: Any) {
+        let api = APIGet()
+        print(api.logout(id: userid))
+    }
+    
     /*
     // MARK: - Navigation
 

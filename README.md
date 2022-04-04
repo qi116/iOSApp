@@ -41,6 +41,8 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 * Multiple markets available
 * Able to purchase/reserve items 
 * Logged in across restarts
+* Reviews for goods in the market
+* User can favorite specific goods and see the list on their home
 
 ### 2. Screen Archetypes
 

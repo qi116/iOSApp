@@ -13,7 +13,8 @@ var mysqlGetVendorInfo: MysqlStmt = new MysqlSelectStmt()
         "vendors.description",
         "vendors.background_picture",
         "vendors.longitude",
-        "vendors.latitude"
+        "vendors.latitude",
+        "vendors.slogan"
     ])
     .addCondition("vendor_id = ?")
     .compileQuery();
@@ -32,6 +33,7 @@ interface Vendor {
     background_picture: any;
     longitude: number;
     latitude: number;
+    slogan: string;
 }
 
 export default wrapper.createHandlerWithMysql(

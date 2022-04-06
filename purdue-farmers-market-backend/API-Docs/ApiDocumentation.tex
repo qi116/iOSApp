@@ -250,6 +250,86 @@ None. Will return success if successful. \\
 
 
 
+\paragraph{/vendors/getvendors}\textbf{}
+
+Gets a list of all of the vendors. If the search name is specified, it will filter it.
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+search\_name & string & No & The name to filter by. \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters: \\
+
+\noindent
+The response will be an array containing items with the following structure.
+
+\noindent
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Notes} \\
+\hline
+vendor\_id & int & The id of the vendor. \\
+slogan & string & The slogan of the vendor. \\
+name & string & The name of the vendor \\
+profile\_picture & blob & The profile picture of the vendor. \\
+longitude & double & The longitude of the vendor. \\
+latitude & double & The latitude of the vendor. \\
+\hline
+\end{tabular} \\
+
+\ErrorsSession
+GV-1: Exception - An unknown error occurred in getting the list of vendors. \\
+
+
+
+\paragraph{/vendors/getvendorinfo}\textbf{}
+
+Gets the information for a specific vendor by their id.
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+vendor\_id & int & Yes & The id of the vendor to get the information of. \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters: \\
+
+\noindent
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Notes} \\
+\hline
+slogan & string & The slogan of the vendor. \\
+name & string & The name of the vendor \\
+description & string & The description of the vendor. \\
+profile\_picture & blob & The profile picture of the vendor. \\
+background\_picture & blob & The background picture of the vendor. \\
+longitude & double & The longitude of the vendor. \\
+latitude & double & The latitude of the vendor. \\
+\hline
+\end{tabular} \\
+
+\ErrorsSession
+GV-1: Failure - No vendor id was given. \\
+GV-2: Failure - The given vendor id does not correspond to a vendor. \\
+GV-3: Exception - An unknown error occurred in getting the vendor information. \\
+
 
 
 

@@ -61,7 +61,8 @@ var mysqlStmtFindSession: MysqlStmt = new MysqlSelectStmt()
 		"users.user_id",
 		"users.user_type",
 		"users.name",
-		"(vendors.vendor_id IS NOT NULL) AS user_is_vendor"
+		"(vendors.vendor_id IS NOT NULL) AS user_vendor_is_setup",
+		"users.user_type = 'vendors' AS user_is_vendor"
 	])
 	.addCondition("sessions.session_id = ?")
 	.addCondition("sessions.session_code = ?")
@@ -73,18 +74,23 @@ var mysqlStmtFindSession: MysqlStmt = new MysqlSelectStmt()
  * and opens a connection to a mysql server.
  */
 export function createHandlerWithSession(callback: (body: any, res: ExpressResponse<any>, mysqlSession: MysqlSession, user: User) => Promise<void>): (req: ExpressRequest, res: ExpressResponse<any>) => Promise<void> {
-	return createHandlerWithMysql(async (body: any, res: ExpressResponse<any>, session: MysqlSession) => {
-		if(!body.session_full_code) {
-      res.respondRequireLogin("W-3");
+	return createHandlerWithMysql(async (body: {session_full_code: string}, res: ExpressResponse<any>, session: MysqlSession) => {
+		if(!body.session_full_code || !(typeof body.session_full_code === 'string')) {
+            res.respondRequireLogin("W-3");
 			return;
 		}
-		var session_id = body.session_full_code.split(":")[0];
-		var session_code = body.session_full_code.split(":")[1];
+        var session_items: Array<string> = body.session_full_code.split(":");
+        if(session_items.length != 2) {
+            res.respondRequireLogin("W-3");
+            return;
+        }
+		var session_id = session_items[0];
+		var session_code = session_items[1];
 		await mysqlStmtFindSession.execute(session, [session_id, session_code])
 			.then(async (result) => {
 				if(result.length == 0) {
 					// Invalid session code
-          res.respondRequireLogin("W-4");
+                    res.respondRequireLogin("W-4");
 					return;
 				}
 				var user: User = result[0];

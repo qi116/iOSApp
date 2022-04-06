@@ -68,6 +68,7 @@ export class MysqlSelectStmt {
 		table: Table,
 		linkCondition: string,
 	}>;
+	limit: {amount: number, offset: number} | null;
 
     constructor() {
         this.conditions = [];
@@ -97,6 +98,10 @@ export class MysqlSelectStmt {
 		return this;
 	}
 
+	setLimit(amount: number, offset: number) {
+		this.limit = {amount: amount, offset: offset};
+	}
+
     compileQuery() {
         var query: string =
             "SELECT " + this.fields.join(",") +
@@ -104,7 +109,8 @@ export class MysqlSelectStmt {
 			this.joinedTables.map(joinedTable =>
 				" LEFT JOIN " + joinedTable.table + " ON (" + joinedTable.linkCondition + ")"
 			).join("") +
-            " WHERE " + this.conditions.map(cond => "(" + cond + ")").join(" AND ");
+            (this.conditions.length != 0 ? (" WHERE " + this.conditions.map(cond => "(" + cond + ")").join(" AND ")) : "") +
+			(this.limit ? (" LIMIT " + this.limit.amount + ", " + this.limit.offset) : "");
         return new MysqlStmt(query);
     }
 

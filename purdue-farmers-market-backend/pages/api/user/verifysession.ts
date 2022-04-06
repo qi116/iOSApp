@@ -7,6 +7,8 @@ import {ExpressResponse} from './../../../components/typescript_types';
 
 export default wrapper.createHandlerWithSession(
     async (_, res: ExpressResponse<null>) => {
+        
         res.respondSuccess();
+
     }
 );

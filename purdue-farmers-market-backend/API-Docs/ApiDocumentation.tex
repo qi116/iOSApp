@@ -44,7 +44,7 @@ The API requests work via sending and receiving JSON data through HTTP POST requ
 
 There are two potential types of errors that can occur and result in an unsuccessful request. Exceptions and Failures. Exceptions are server-side problems that are most likely the result of a bug. Please contact the developer with the code to fix them. Failures are errors that occur because of invalid input parameters. Likely a field is missing or invalid, causing the failure to occur. Only occasionally will failures be the result of a server-side problem. \\
 
-Whenever an API endpoint has response parameters specified, they will be contained inside the "data" json object (in line 4 above). If it does not specify any response parameters, the "data" json object will be null, and you can get the result of the operation from the "success" boolean. \\
+Whenever an API endpoint has response parameters specified, they will be contained inside the "data" json object (in line 6 above). If it does not specify any response parameters, the "data" json object will be null, and you can get the result of the operation from the "success" boolean. \\
 
 \newpage
 

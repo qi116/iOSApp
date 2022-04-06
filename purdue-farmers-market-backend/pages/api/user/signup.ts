@@ -35,7 +35,7 @@ interface SignupRequestBody {
     email_address: string;
     name: string;
     password: string;
-    user_type: "user" | "vendor";
+    user_type: "customer" | "vendor";
 }
 
 export interface MysqlResult {
@@ -48,7 +48,7 @@ export default wrapper.createHandlerWithMysql(
     async (body: SignupRequestBody, res: ExpressResponse<null>, session: MysqlSession) => {
         if(!body.email_address || !body.name ||
             !body.password ||
-            !(body.user_type == "user" || body.user_type == "vendor")) {
+            !(body.user_type == "customer" || body.user_type == "vendor")) {
 
             // Invalid form data.
             res.respondFail("SU-1");

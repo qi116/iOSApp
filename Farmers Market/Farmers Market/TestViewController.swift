@@ -27,7 +27,8 @@ class TestViewController: UIViewController {
     let api = APIGet()
     @IBAction func GetRequest(_ sender: Any) {
         
-        api.login(user: "test", pass: "test", success: success, fail: fail)
+        //api.login(user: "test", pass: "test", success: success, fail: fail)
+        api.signup(email: "123", pass: "123", name: "hello", isVendor: false, success: success, fail: fail)
         //print(userid)
     }
     

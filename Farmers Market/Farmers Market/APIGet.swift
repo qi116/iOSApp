@@ -60,16 +60,6 @@ class APIGet {
         
     }
     
-    func sendRequest() -> Void {
-        self.request(
-            link: "http://128.211.194.217/api/user/login",
-            json: ["email_address": "test", "password": "test"],
-            callback: { resData in
-            
-                print(resData["success"]);
-                
-        })
-    }
     
     func request(link: String, json: [String: Any], callback: @escaping([String: Any]) -> Void) -> Void {
         let url = URL(string: link)!
@@ -161,6 +151,32 @@ class APIGet {
             }
             
         })
+        
+    }
+    
+    func signup(email: String, pass: String, name: String, isVendor: Bool, success:@escaping () -> Void, fail: @escaping(String) -> Void)    {
+        var type = "customer"
+        if (isVendor) {
+            type = "vendor"
+        }
+        self.request(
+            link: "http://128.211.194.217:3000/api/user/signup",
+            json: ["email_address": email, "name": name, "password": pass, "user_type": type],
+            callback: { output in
+                if let code = output["success"] {
+                    if (code as! Int == 1) {
+                        success()
+                    } else {
+                        fail(output["errorCode"] as! String)
+                    }
+                    
+                }
+                else {
+                    fail(output["errorCode"] as! String)
+                }
+        })
+//        let url = "http://128.211.194.217:3000/api/user/login"
+//        let json = ["email_address": user, "password": pass]
         
     }
     

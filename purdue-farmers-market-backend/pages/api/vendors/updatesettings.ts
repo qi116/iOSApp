@@ -1,20 +1,19 @@
 import * as wrapper from "./../../../components/api_wrapper";
 
 import {ExpressResponse, User} from './../../../components/typescript_types';
-import {MysqlSession, Table, MysqlStmt, MysqlSelectStmt, MysqlInsertStmt} from './../../../components/database';
+import {MysqlSession, Table, MysqlStmt, MysqlSelectStmt, MysqlUpdateStmt} from './../../../components/database';
 
 var mysqlStmtCheckExists: MysqlStmt = new MysqlSelectStmt()
 	.setTable(Table.Vendors)
+	.setFields(["vendors.vendor_id"])
     .addCondition("vendor_id = ?")
     .compileQuery();
 
-var mysqlStmtUpdateSettings: MysqlInsertStmt = new MysqlInsertStmt()
+var mysqlStmtUpdateSettings: MysqlUpdateStmt = new MysqlUpdateStmt()
 	.setTable(Table.Vendors)
-    .setUpdateOnDuplicateKey(true);
+	.addCondition("vendor_id = ?");
 
 interface RequestVendorUpdateSettingsBody {
-    vendor_id: number;
-
     description: string | null;
     name: string | null;
     background_picture: string | null;
@@ -24,50 +23,54 @@ interface RequestVendorUpdateSettingsBody {
 
 var validFields = [
     "description",
-    "name",
-    "background",
+	"background_picture",
     "longitude",
-    "latitude"
+    "latitude",
+	"slogan"
 ];
 
 // Will return success if the settings are successfully updated
 
 export default wrapper.createHandlerWithSession(
-    async (body: RequestVendorUpdateSettingsBody, res: ExpressResponse<null>, session: MysqlSession, _: User) => {
-
-        if(!body.vendor_id && body.vendor_id != 0) {
+    async (body: RequestVendorUpdateSettingsBody, res: ExpressResponse<null>, session: MysqlSession, user: User) => {
+		if(!user.user_is_vendor) {
             res.respondFail("VUS-1");
             return;
         }
         var fields: Array<string> = [];
         var values: Array<string | number> = [];
-        for(var field in validFields) {
+        for(var i = 0; i < validFields.length; i++) {
+			var field: string = validFields[i];
             if(body[field] || body[field] == 0) {
                 fields.push(field);
                 values.push(body[field]);
             }
         }
-        await mysqlStmtCheckExists.execute(session, [body.vendor_id])
-        .then(async (res) => {
-            if(res.length == 0) {
-                res.respondFail("VUS-2");
+		if(fields.length == 0) {
+			res.respondFail("VUS-2");
+			return;
+		}
+		values.push(user.vendor_id);
+
+        await mysqlStmtCheckExists.execute(session, [user.vendor_id])
+        .then(async (results) => {
+            if(results.length == 0) {
+                res.respondFail("VUS-3");
                 return;
             }
 
-            fields.unshift("vendor_id");
-            values.unshift(body.vendor_id);
             await mysqlStmtUpdateSettings
                 .setFields(fields)
                 .compileQuery()
                 .execute(session, values)
-                .then((res) => {
+                .then((_) => {
                     res.respondSuccess();
                 })
                 .catch((e) => {
-                    res.respondException(e, "VUS-3");
+                    res.respondException(e, "VUS-4");
                 });
         }).catch((e) => {
-            res.respondException(e, "VUS-4");
+            res.respondException(e, "VUS-5");
         })
     }
 );

@@ -55,14 +55,14 @@ export function createHandlerWithMysql(callback: (body: any, res: ExpressRespons
 var mysqlStmtFindSession: MysqlStmt = new MysqlSelectStmt()
 	.setTable(Table.Sessions)
 	.joinTable(Table.Users, "users.user_id = sessions.user_id")
-	.joinTable(Table.Vendors, "users.user_id = sessions.user_id")
+	.joinTable(Table.Vendors, "users.user_id = vendors.owner_user_id")
 	.setFields([
 		"sessions.session_id",
 		"users.user_id",
 		"users.user_type",
 		"users.name",
-		"(vendors.vendor_id IS NOT NULL) AS user_vendor_is_setup",
-		"users.user_type = 'vendors' AS user_is_vendor"
+		"users.user_type = 'vendor' AS user_is_vendor",
+		"vendors.vendor_id AS vendor_id"
 	])
 	.addCondition("sessions.session_id = ?")
 	.addCondition("sessions.session_code = ?")
@@ -87,7 +87,7 @@ export function createHandlerWithSession(callback: (body: any, res: ExpressRespo
 		var session_id = session_items[0];
 		var session_code = session_items[1];
 		await mysqlStmtFindSession.execute(session, [session_id, session_code])
-			.then(async (result) => {
+			.then(async (result: Array<User>) => {
 				if(result.length == 0) {
 					// Invalid session code
                     res.respondRequireLogin("W-4");

@@ -149,6 +149,39 @@ export class MysqlInsertStmt {
 	}
 }
 
+export class MysqlUpdateStmt {
+	table: Table;
+	fields: Array<string>;
+	conditions: Array<string>;
+
+	constructor() {
+		this.fields = [];
+		this.conditions = [];
+	}
+
+	addCondition(condition: string): MysqlUpdateStmt {
+		this.conditions.push(condition);
+		return this;
+	}
+
+	setTable(table: Table): MysqlUpdateStmt {
+		this.table = table;
+		return this;
+	}
+
+	setFields(fields: Array<string>) : MysqlUpdateStmt {
+		this.fields = fields;
+		return this;
+	}
+
+	compileQuery() : MysqlStmt {
+		var vals = "?,".repeat(this.fields.length);
+		vals = vals.substring(0, vals.length-1);
+		return new MysqlStmt(
+			"UPDATE " + this.table + " SET " + this.fields.map(val => (val + " = ?")).join(",") + " WHERE " + this.conditions.map(val => "(" + val + ")").join(" AND ")
+		);
+	}
+}
 
 export class MysqlDeleteStmt {
 	table: Table;

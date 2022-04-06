@@ -27,4 +27,5 @@ export interface User {
 	user_type: UserType;
 	name: string;
 	user_is_vendor: boolean;
+	vendor_id: number;
 }

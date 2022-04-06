@@ -12,6 +12,11 @@ var mysqlStmtFindUser: MysqlStmt = new MysqlSelectStmt()
 		"users.salted_password",
 
 		"users.user_id",
+
+		"users.name",
+		"users.profile_picture",
+		"users.phone_number",
+		"users.user_type"
 	])
 	.addCondition("users.email_address = ?")
 	.compileQuery();
@@ -30,7 +35,13 @@ interface LoginRequestBody {
 }
 
 interface LoginRequestResponse {
-    session_full_code: string
+    session_full_code: string;
+
+	email_address: string;
+	name: string;
+	profile_picture: string;
+	phone_number: string;
+	user_type: "vendor" | "consumer";
 }
 
 export default wrapper.createHandlerWithMysql(
@@ -45,6 +56,13 @@ export default wrapper.createHandlerWithMysql(
                 email_address: string;
                 salted_password: string;
                 user_id: number;
+
+				name: string;
+				profile_picture: string;
+				phone_number: string;
+				user_type: "vendor" | "consumer";
+
+
             }>) => {
                 if(results.length == 0) {
                     // Email address not found
@@ -59,17 +77,25 @@ export default wrapper.createHandlerWithMysql(
                     res.respondFail("LI-1");
                     return;
                 }
-		        	var session_code = crypto.randomBytes(16).toString('hex');
+	        	var session_code = crypto.randomBytes(16).toString('hex');
 
-		            await mysqlStmtCreateSession.execute(session, [result.user_id, session_code])
-		                .then((result) => {
-		                    res.respondSuccess({session_full_code: result.insertId + ":" + session_code});
-		                }).catch((e) => {
-		                    res.respondException(e, "LI-2");
-		                })
-		        })
-		        .catch((e) => {
-		            res.respondException(e, "LI-3");
-		        })
+	            await mysqlStmtCreateSession.execute(session, [result.user_id, session_code])
+	                .then((result) => {
+	                    res.respondSuccess({
+							session_full_code: result.insertId + ":" + session_code,
+
+							name: result.name,
+							email_address: result.email_address,
+							profile_picture: result.profile_picture,
+							phone_number: result.phone_number,
+							user_type: result.user_type
+						});
+	                }).catch((e) => {
+	                    res.respondException(e, "LI-2");
+	                })
+	        })
+	        .catch((e) => {
+	            res.respondException(e, "LI-3");
+	        })
     }
 );

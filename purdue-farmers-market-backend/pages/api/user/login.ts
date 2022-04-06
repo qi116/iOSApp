@@ -80,9 +80,9 @@ export default wrapper.createHandlerWithMysql(
 	        	var session_code = crypto.randomBytes(16).toString('hex');
 
 	            await mysqlStmtCreateSession.execute(session, [result.user_id, session_code])
-	                .then((result) => {
+	                .then((insertion_result: {insertId: number}) => {
 	                    res.respondSuccess({
-							session_full_code: result.insertId + ":" + session_code,
+							session_full_code: insertion_result.insertId + ":" + session_code,
 
 							name: result.name,
 							email_address: result.email_address,

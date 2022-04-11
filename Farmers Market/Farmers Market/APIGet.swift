@@ -182,14 +182,20 @@ class APIGet {
      * gets list of vendors searched by name
      * Accepts callback function that can accept list of dictionaries and one that accepts an error message
      */
-    func getVendors(name: String, success:@escaping ([[String: Any]]) -> Void, fail: @escaping(String) -> Void)    {
+    func getVendors(name: String, success:@escaping ([Vendor]) -> Void, fail: @escaping(String) -> Void)    {
         self.request(
             link: "http://128.211.194.217:3000/api/vendors/getvendors",
             json: ["search_name": name],
             callback: { output in
+                var vendors : [Vendor] = [];
                 if let list = output["data"] {
                     
-                    success(list as! [[String:Any]]) //create a vendor object and make the dicts into them.
+                    for ven in (list as! [[String: Any]]) {
+                        let v = Vendor(id: ven["vendor_id"] as! Int, slogan: ven["slogan"] as! String, name: ven["name"] as! String, longitude: ven["longitude"] as! Double, latitude: ven["latitude"] as! Double);
+                        vendors.append(v);
+                    }
+                    
+                    success(vendors) //create a vendor object and make the dicts into them.
                     
                 } else {
                     fail(output["error_code"] as! String)

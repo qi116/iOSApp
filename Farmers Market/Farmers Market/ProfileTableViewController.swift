@@ -1,17 +1,20 @@
 //
-//  HomeTableViewController.swift
+//  ProfileTableViewController.swift
 //  Farmers Market
 //
-//  Created by 庄玮祺 on 4/3/22.
+//  Created by 庄玮祺 on 4/10/22.
 //
 
 import UIKit
 
-class HomeTableViewController: UITableViewController {
-
+class ProfileTableViewController: UITableViewController {
+    let api = APIGet()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -19,8 +22,27 @@ class HomeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    
+    @IBAction func onLogout(_ sender: Any) {
+        api.logout(success: {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }, fail: { output in
+            print(output)
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+    }
     // MARK: - Table view data source
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0

@@ -10,6 +10,7 @@ import UIKit
 
 class APIGet {
     
+    
     var sessionId = ""
     //URLRequest(url: url)
     //var request = URLRequest(url: url)
@@ -86,9 +87,7 @@ class APIGet {
         //let sem = DispatchSemaphore.init(value: 0)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             //defer {sem.signal()}
-            print(data);
-            print(response);
-            print(error);
+            
             if let data = data {
                 //let image = UIImage(data: data)
                 //print(response)
@@ -135,8 +134,8 @@ class APIGet {
         
         
         let url = "http://128.211.194.217:3000/api/user/logout"
-        let json = ["session_full_code": sessionId]
-        
+        let json = ["session_full_code": self.sessionId]
+        print(self.sessionId)
         self.request(link: url, json: json, callback: {
             output in
             
@@ -179,7 +178,42 @@ class APIGet {
 //        let json = ["email_address": user, "password": pass]
         
     }
+    /*
+     * gets list of vendors searched by name
+     * Accepts callback function that can accept list of dictionaries and one that accepts an error message
+     */
+    func getVendors(name: String, success:@escaping ([[String: Any]]) -> Void, fail: @escaping(String) -> Void)    {
+        self.request(
+            link: "http://128.211.194.217:3000/api/vendors/getvendors",
+            json: ["search_name": name],
+            callback: { output in
+                if let list = output["data"] {
+                    
+                    success(list as! [[String:Any]]) //create a vendor object and make the dicts into them.
+                    
+                } else {
+                    fail(output["error_code"] as! String)
+                }
+        })
+        
+    }
     
+    func getVendorInfo(id: Int, success:@escaping ([String: Any]) -> Void, fail: @escaping(String) -> Void) {
+        self.request(
+            link: "http://128.211.194.217:3000/api/vendors/getvendorinfo",
+            json: ["vendor_id": id],
+            callback: { output in
+                if let list = output["data"] {
+                    
+                    success(list as! [String:Any]) //create a vendor object and make the dicts into them.
+                    
+                } else {
+                    fail(output["error_code"] as! String)
+                }
+        })
+        
+        
+    }
     
 }
 

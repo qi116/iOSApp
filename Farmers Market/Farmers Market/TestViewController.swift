@@ -27,12 +27,19 @@ class TestViewController: UIViewController {
     func fail(output: String) {
         print(output)
     }
+    func vend(output: [Vendor]) {
+        print(output[0].id);
+    }
+    func vendi(output: Vendor) {
+        print(output.description);
+    }
     let api = APIGet()
     @IBAction func GetRequest(_ sender: Any) {
         
-        api.login(user: "test", pass: "test", success: success, fail: fail)
+        //api.login(user: "test", pass: "test", success: success, fail: fail)
         //api.signup(email: "123", pass: "123", name: "hello", isVendor: false, success: success, fail: fail)
-        //api.getVendorInfo(id: 1, success: lib, fail: fail)
+        //api.getVendors(name: "", success: vend, fail: fail);
+        api.getVendorInfo(id: 1, success: vendi, fail: fail)
         //print(userid)
     }
     

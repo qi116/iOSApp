@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D35A7F762804C9E20077D754 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A7F752804C9E20077D754 /* Vendor.swift */; };
+		D35A7F782804D1130077D754 /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A7F772804D1130077D754 /* VendorInfo.swift */; };
 		D35C6B4427F2581A00578BA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C6B4327F2581A00578BA8 /* AppDelegate.swift */; };
 		D35C6B4627F2581A00578BA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C6B4527F2581A00578BA8 /* SceneDelegate.swift */; };
 		D35C6B4827F2581B00578BA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C6B4727F2581A00578BA8 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		D35A7F752804C9E20077D754 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
+		D35A7F772804D1130077D754 /* VendorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
 		D35C6B4027F2581A00578BA8 /* Farmers Market.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farmers Market.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35C6B4327F2581A00578BA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D35C6B4527F2581A00578BA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				D35C6B5927F25BAC00578BA8 /* APIGet.swift */,
 				D380E58D27F4FF210098AA00 /* TestViewController.swift */,
 				D35A7F752804C9E20077D754 /* Vendor.swift */,
+				D35A7F772804D1130077D754 /* VendorInfo.swift */,
 			);
 			path = "Farmers Market";
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			files = (
 				D380E58E27F4FF210098AA00 /* TestViewController.swift in Sources */,
 				D35C6B4827F2581B00578BA8 /* ViewController.swift in Sources */,
+				D35A7F782804D1130077D754 /* VendorInfo.swift in Sources */,
 				D35C6B5A27F25BAC00578BA8 /* APIGet.swift in Sources */,
 				D35A7F762804C9E20077D754 /* Vendor.swift in Sources */,
 				D35C6B4427F2581A00578BA8 /* AppDelegate.swift in Sources */,

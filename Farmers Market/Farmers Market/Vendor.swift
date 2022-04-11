@@ -13,6 +13,7 @@ class Vendor {
     var name = "";
     var longitude = 0.0;
     var latitude = 0.0;
+    var description = "";
     
     init(id: Int, slogan: String, name: String, longitude: Double, latitude: Double) {
         self.id = id;
@@ -21,4 +22,13 @@ class Vendor {
         self.longitude = longitude
         self.latitude = latitude
     }
+    init(id: Int, slogan: String, name: String, description: String, longitude: Double, latitude: Double) {
+        self.id = id;
+        self.slogan = slogan
+        self.name = name;
+        self.description = description;
+        self.longitude = longitude
+        self.latitude = latitude
+    }
+
 }

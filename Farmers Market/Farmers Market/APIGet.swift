@@ -204,14 +204,15 @@ class APIGet {
         
     }
     
-    func getVendorInfo(id: Int, success:@escaping ([String: Any]) -> Void, fail: @escaping(String) -> Void) {
+    func getVendorInfo(id: Int, success:@escaping (Vendor) -> Void, fail: @escaping(String) -> Void) {
         self.request(
             link: "http://128.211.194.217:3000/api/vendors/getvendorinfo",
             json: ["vendor_id": id],
             callback: { output in
                 if let list = output["data"] {
-                    
-                    success(list as! [String:Any]) //create a vendor object and make the dicts into them.
+                    let ven = list as! [String: Any]
+                    let v = Vendor(id: id, slogan: ven["slogan"] as! String, name: ven["name"] as! String, description: ven["description"] as! String, longitude: ven["longitude"] as! Double, latitude: ven["latitude"] as! Double);
+                    success(v) //create a vendor object and make the dicts into them.
                     
                 } else {
                     fail(output["error_code"] as! String)

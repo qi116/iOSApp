@@ -9,12 +9,11 @@
 import UIKit
 
 class APIGet {
-    
-    
+
     var sessionId = ""
     //URLRequest(url: url)
     //var request = URLRequest(url: url)
-	
+    
     //request.httpMethod = "POST"
     func test() {
         let url = URL(string: "http://128.211.194.217:3000/api/user/login")!
@@ -87,7 +86,6 @@ class APIGet {
         //let sem = DispatchSemaphore.init(value: 0)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             //defer {sem.signal()}
-            
             if let data = data {
                 //let image = UIImage(data: data)
                 //print(response)
@@ -112,7 +110,8 @@ class APIGet {
      * @params user, pass
      * Returns user id if succeeds. Returns "fail" if login failed
      */
-    func login(user: String, pass: String, success:@escaping () -> Void, fail: @escaping(String) -> Void)	{
+
+    func login(user: String, pass: String, success:@escaping () -> Void, fail: @escaping(String) -> Void){
         self.request(
             link: "http://128.211.194.217:3000/api/user/login",
             json: ["email_address": user, "password": pass],
@@ -223,6 +222,4 @@ class APIGet {
     }
     
 }
-
-
 

@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+    \PYG{n+nx}{success}: \PYG{k+kt}{true}\PYG{p}{,}
+    \PYG{n+nx}{needLogin}: \PYG{k+kt}{false}\PYG{p}{,}
+    \PYG{n+nx}{errorCode}: \PYG{k+kt}{null}\PYG{p}{,}
+    \PYG{n+nx}{data}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+    	\PYG{n+nx}{session\PYGZus{}full\PYGZus{}code}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}1:facc853ea87acdf26852088777f33035\PYGZdq{}}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -25,14 +25,15 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
-
-* Database with vendors and available items per vendor (Setting up API)
-* - [X] Vendors can register account 
-* - [X] User can log in and log out 
-* Display of available items (Finished database setup)
-* Vendor can include image for item (Finished database setup)
-* Vendor can update items and availability (Finished database setup)
-* User can change their setting (Finished database setup)
+* [X] Users can create accounts (signup) - [Fully Complete]
+* [X] Users can log in and log out - [Fully Complete]
+* [ ] Home page shows list of vendors - [Backend complete]
+* [ ] Tapping on a vendor shows information and goods - [Backend partially complete]
+* [ ] Users can change settings (i.e. name) - [Backend Complete]
+* [ ] Vendors can change descriptions - [Backend Complete]
+* [ ] Vendors can change goods in their store - [Unstarted]
+* [ ] Can upload profile pictures and images of goods - [Backend Complete]
+* [ ] Vendor can update items and availability - [Unstarted]
 
 **Optional Nice-to-have Stories**
 

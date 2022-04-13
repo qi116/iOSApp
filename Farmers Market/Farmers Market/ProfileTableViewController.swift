@@ -30,9 +30,6 @@ class ProfileTableViewController: UITableViewController {
             }
         }, fail: { output in
             print(output)
-            DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
-            }
         })
     }
     // MARK: - Table view data source

@@ -4,7 +4,7 @@ import {ExpressResponse, User} from './../../../components/typescript_types';
 import {MysqlSession, Table, MysqlStmt, MysqlSelectStmt} from './../../../components/database';
 
 var mysqlGetGoods: MysqlSelectStmt = new MysqlSelectStmt()
-  .setTable(Table.Vendors)
+  .setTable(Table.Goods)
   .setFields(["vendor_id","good_id","name","description","stock","picture", "good_type"])
   .addCondition("1 = 1")
   .addCondition("name LIKE CONCAT(?,'%')");

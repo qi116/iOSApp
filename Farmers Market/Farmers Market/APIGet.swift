@@ -15,6 +15,13 @@ class APIGet {
     //var request = URLRequest(url: url)
     
     //request.httpMethod = "POST"
+    func getId() -> String{
+        return sessionId;
+    }
+    func setId(id: String) {
+        sessionId = id;
+    }
+    
     func test() {
         let url = URL(string: "http://128.211.194.217:3000/api/user/login")!
         var request = URLRequest(url:url)

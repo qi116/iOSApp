@@ -29,6 +29,9 @@ class LoginViewController: UIViewController {
     @IBAction func onLogin(_ sender: Any) {
         var email = ""
         var pass = ""
+        email = usernameField.text!
+        pass = passwordField.text!
+        
         email = "test"
         pass = "test"
 

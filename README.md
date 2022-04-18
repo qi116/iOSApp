@@ -35,12 +35,12 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 * [ ] Vendor can update items and availability - [Unstarted]
 
 **Optional Nice-to-have Stories**
+* [X] Logged in across restarts
 * Can upload profile pictures and images of goods
 * Message to another users
 * Pull to refresh
 * Multiple markets available
 * Able to purchase/reserve items 
-* Logged in across restarts
 * Reviews for goods in the market
 * User can favorite specific goods and see the list on their home
 

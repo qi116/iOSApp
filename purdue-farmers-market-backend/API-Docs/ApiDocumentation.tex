@@ -368,7 +368,7 @@ good\_type & number & Number representing type of good. \\
 \end{tabular} \\
 
 \ErrorsSession
-GG-1: Failure - An unknown error occurred in getting the list of goods. \\
+GG-1: Exception - An unknown error occurred in getting the list of goods. \\
 
 \paragraph{/goods/getgoodinfo}\textbf{}
 
@@ -407,7 +407,7 @@ good\_type & number & Number representing type of good. \\
 \ErrorsSession
 GGI-1: Failure - No good\_id was given. \\
 GGI-2: Failure - The given good id does not correspond to a good. \\
-GGI-3: Failure - An unknown error occurred in getting the good information. \\
+GGI-3: Exception - An unknown error occurred in getting the good information. \\
 
 \paragraph{/goods/addgood}\textbf{}
 
@@ -421,6 +421,7 @@ Request Parameters:
 \hline
 \textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
 \hline
+session\_full\_code & string & Yes & The code for the session of the vendor adding the good. \\
 name & string & Yes & Name of the good. \\
 description & string & Yes & A description of the good. \\
 picture & string & Yes & A picture of the good. \\
@@ -435,7 +436,7 @@ None. Will return success if successful. \\
 
 \ErrorsSession
 AG-1: Failure - The name or description is invalid. \\
-AG-2: Failure - An unknown error happened while creating good. \\
+AG-2: Exception - An unknown error happened while creating good. \\
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  18 APR 2022 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  18 APR 2022 17:20
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -548,17 +548,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 407--411
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--431
+Underfull \hbox (badness 10000) in paragraph at lines 419--432
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 432--435
+Underfull \hbox (badness 10000) in paragraph at lines 433--436
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--439
+Underfull \hbox (badness 10000) in paragraph at lines 437--440
 
  []
 
@@ -579,7 +579,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ApiDocumentation.pdf (7 pages, 93616 bytes).
+Output written on ApiDocumentation.pdf (7 pages, 93743 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  36 compressed objects within 1 object stream

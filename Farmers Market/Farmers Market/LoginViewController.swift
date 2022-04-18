@@ -39,8 +39,11 @@ class LoginViewController: UIViewController {
 //            UserDefaults.standard.set(true, forKey:"userLoggedIn")
             
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "loginToProfile", sender: self)
+//                self.performSegue(withIdentifier: "loginToProfile", sender: self)
+                let nextVc = VendorProfileViewController()
+                self.navigationController?.pushViewController(nextVc, animated: true)
             }
+            
             print("success")
         }, fail: { output in
             print(output)

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		666AA95B280B9637002F5DE1 /* VendorsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA95A280B9637002F5DE1 /* VendorsViewCell.swift */; };
+		66B9194F280CD0BE00401ECC /* VendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B9194E280CD0BE00401ECC /* VendorsViewController.swift */; };
+		66B91951280CD6C600401ECC /* VendorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B91950280CD6C600401ECC /* VendorDetailController.swift */; };
 		AD80BABF27FA8E9E0060EA97 /* APIGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80BABE27FA8E9E0060EA97 /* APIGet.swift */; };
 		ADABBEF5280234FA00D8775A /* Vendors.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADABBEF4280234FA00D8775A /* Vendors.storyboard */; };
 		ADABBEF72802350600D8775A /* Items.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADABBEF62802350600D8775A /* Items.storyboard */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		666AA95A280B9637002F5DE1 /* VendorsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorsViewCell.swift; sourceTree = "<group>"; };
+		66B9194E280CD0BE00401ECC /* VendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorsViewController.swift; sourceTree = "<group>"; };
+		66B91950280CD6C600401ECC /* VendorDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorDetailController.swift; sourceTree = "<group>"; };
 		AD80BABE27FA8E9E0060EA97 /* APIGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIGet.swift; sourceTree = "<group>"; };
 		ADABBEF4280234FA00D8775A /* Vendors.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vendors.storyboard; sourceTree = "<group>"; };
 		ADABBEF62802350600D8775A /* Items.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Items.storyboard; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				ADABBEF4280234FA00D8775A /* Vendors.storyboard */,
+				66B9194E280CD0BE00401ECC /* VendorsViewController.swift */,
+				666AA95A280B9637002F5DE1 /* VendorsViewCell.swift */,
+				66B91950280CD6C600401ECC /* VendorDetailController.swift */,
 			);
 			name = VendorsTab;
 			path = "Farmers Market";
@@ -180,6 +189,7 @@
 				TargetAttributes = {
 					D35C6B3F27F2581A00578BA8 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1330;
 					};
 				};
 			};
@@ -228,8 +238,11 @@
 				ADC0544028053B1B00B6627D /* Vendor.swift in Sources */,
 				ADABBF012803D08800D8775A /* ProfileTableViewController.swift in Sources */,
 				AD80BABF27FA8E9E0060EA97 /* APIGet.swift in Sources */,
+				66B9194F280CD0BE00401ECC /* VendorsViewController.swift in Sources */,
 				ADABBF052803D62700D8775A /* RegisterViewController.swift in Sources */,
+				66B91951280CD6C600401ECC /* VendorDetailController.swift in Sources */,
 				ADABBEFF2803CA5200D8775A /* LoginViewController.swift in Sources */,
+				666AA95B280B9637002F5DE1 /* VendorsViewCell.swift in Sources */,
 				D35C6B4627F2581A00578BA8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -394,6 +408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath.Farmers-Market";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -404,6 +419,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

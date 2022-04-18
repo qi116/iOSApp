@@ -16,11 +16,11 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
-//            self.performSegue(withIdentifier: "loginToProfile", sender: self)
-//        }
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
+            self.performSegue(withIdentifier: "automaticToProfile", sender: self)
+        }
+    }
     
     @IBOutlet weak var usernameField: UITextField!
     
@@ -34,14 +34,15 @@ class LoginViewController: UIViewController {
         
         email = "test"
         pass = "test"
-
+        
         api.login(user: email, pass: pass, success: {
-//            UserDefaults.standard.set(true, forKey:"userLoggedIn")
-            
+            UserDefaults.standard.set(true, forKey:"userLoggedIn")
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "loginToProfile", sender: self)
+                UserDefaults.standard.set(self.api.sessionId, forKey: "sessionId")
+                self.performSegue(withIdentifier: "toTest", sender: self)
+//                self.performSegue(withIdentifier: "loginToProfile", sender: self)
             }
-            print("success")
+            
         }, fail: { output in
             print(output)
         })

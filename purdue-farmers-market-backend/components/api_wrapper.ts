@@ -93,6 +93,7 @@ export function createHandlerWithSession(callback: (body: any, res: ExpressRespo
                     res.respondRequireLogin("W-4");
 					return;
 				}
+                console.log(result);
 				var user: User = result[0];
 				try {
 					await callback(body, res, session, user);

@@ -1,18 +1,18 @@
 //
-//  GoodTableViewCell.swift
+//  ItemCell.swift
 //  Farmers Market
 //
-//  Created by MacOS on 4/17/22.
+//  Created by 庄玮祺 on 4/17/22.
 //
 
 import UIKit
 
-class GoodTableViewCell: UITableViewCell {
+class ItemCell: UITableViewCell {
 
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    
+    @IBOutlet weak var itemPhotoView: UIImageView!
+    @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

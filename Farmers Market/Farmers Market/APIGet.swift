@@ -225,6 +225,26 @@ class APIGet {
                 }
         })
         
+    }
+    
+    func getGoods(name: String, success:@escaping ([[String: Any]]) -> Void, fail: @escaping(String) -> Void)    {
+        self.request(
+            link: "http://128.211.194.217:3000/api/goods/getgoods",
+            json: ["search_name": name],
+            callback: { output in
+                var goods : [[String: Any]] = [];
+                if let list = output["data"] {
+                    
+                    for good in (list as! [[String: Any]]) {
+                        goods.append(good);
+                    }
+                    
+                    success(goods) //create a vendor object and make the dicts into them.
+                    
+                } else {
+                    fail(output["error_code"] as! String)
+                }
+        })
         
     }
     

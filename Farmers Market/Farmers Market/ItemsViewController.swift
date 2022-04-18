@@ -19,8 +19,8 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
-        api.getGoods(name: "", success:{ (goods: [[String: Any]]) in
-            self.items = goods
+        api.getGoods(name: "", success:{ (items: [[String: Any]]) in
+            self.items = items
             DispatchQueue.main.sync {
                 self.tableView.reloadData()
             }
@@ -36,7 +36,7 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
-                
+        
         let item = items[indexPath.row]
         let name = item["name"] as! String;
         let description = item["description"] as! String;

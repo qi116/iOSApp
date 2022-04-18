@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="214" id="fHq-XD-xA4" customClass="ItemCell" customModule="Farmers_Market" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="214" id="fHq-XD-xA4" customClass="ItemCell" customModule="Farmers_Market" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="430" height="214"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fHq-XD-xA4" id="6pq-dR-6y3">
@@ -50,7 +50,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="captionLabel" destination="kt6-Ju-HcX" id="doZ-gS-46d"/>
+                                            <outlet property="descriptionLabel" destination="kt6-Ju-HcX" id="c64-5F-Rr6"/>
                                             <outlet property="itemNameLabel" destination="wdF-7o-L2E" id="Ys2-f0-cZy"/>
                                             <outlet property="itemPhotoView" destination="kTe-II-A0X" id="bTI-u6-rqw"/>
                                         </connections>

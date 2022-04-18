@@ -24,9 +24,14 @@ class ProfileTableViewController: UITableViewController {
 
     
     @IBAction func onLogout(_ sender: Any) {
+        if !(UserDefaults.standard.string(forKey: "sessionId")?.isEmpty)! {
+            api.sessionId = UserDefaults.standard.string(forKey: "sessionId")!
+        }
         api.logout(success: {
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
+                UserDefaults.standard.set(false, forKey: "userLoggedIn")
+                UserDefaults.standard.set(nil, forKey: "sessionId")
             }
         }, fail: { output in
             print(output)

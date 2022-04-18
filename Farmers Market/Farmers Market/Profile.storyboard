@@ -8,6 +8,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="WIJ-9A-lFk">
+            <objects>
+                <navigationController id="8UL-aP-kJM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vxF-Ve-xcX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iTx-pJ-yOz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-999" y="84"/>
+        </scene>
         <!--LoginViewController-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -71,6 +84,8 @@
                         <outlet property="usernameField" destination="Jf1-Fp-12T" id="PkM-lS-ovw"/>
                         <segue destination="lUd-jS-BOG" kind="presentation" identifier="loginToProfile" id="h3y-pb-fak"/>
                         <segue destination="9S5-3k-9If" kind="presentation" identifier="register" id="wDK-64-1gv"/>
+                        <segue destination="lUd-jS-BOG" kind="showDetail" identifier="automaticToProfile" animates="NO" id="rHG-XG-lSW"/>
+                        <segue destination="cLE-lR-Fpn" kind="showDetail" identifier="toTest" id="6CW-nz-6WM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -206,16 +221,44 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EqP-jz-2yS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753.6231884057972" y="84.375"/>
+            <point key="canvasLocation" x="2046" y="445"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View Controller-->
+        <scene sceneID="jGD-aP-7ZR">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="cLE-lR-Fpn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vhe-Wn-tmA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r12-A3-ppK">
+                                <rect key="frame" x="186" y="438" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4e8-Am-0Hg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhp-T2-ZI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156.521739130435" y="-330.13392857142856"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="VAs-on-AT9">
             <objects>
                 <navigationController modalPresentationStyle="fullScreen" id="lUd-jS-BOG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="vUK-Kr-dKp"/>
                     <navigationItem key="navigationItem" id="fJw-NM-Y61"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bac-Gg-uvb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -226,9 +269,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DcQ-Ci-Jdy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="864" y="85"/>
+            <point key="canvasLocation" x="1157" y="445"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rHG-XG-lSW"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

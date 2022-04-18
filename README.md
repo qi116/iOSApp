@@ -27,21 +27,20 @@ The app is designed to connect Farmers with their customers through an easy-to-u
 **Required Must-have Stories**
 * [X] Users can create accounts (signup) - [Fully Complete]
 * [X] Users can log in and log out - [Fully Complete]
-* [ ] Home page shows list of vendors - [Backend complete]
-* [ ] Tapping on a vendor shows information and goods - [Backend partially complete]
+* [X] Home page shows list of vendors - [Fully complete]
+* [X] Tapping on a vendor shows information and goods - [Fully complete]
 * [ ] Users can change settings (i.e. name) - [Backend Complete]
 * [ ] Vendors can change descriptions - [Backend Complete]
-* [ ] Vendors can change goods in their store - [Unstarted]
-* [ ] Can upload profile pictures and images of goods - [Backend Complete]
+* [ ] Vendors can change goods in their store - [Backend Partially Complete]
 * [ ] Vendor can update items and availability - [Unstarted]
 
 **Optional Nice-to-have Stories**
-
+* [X] Logged in across restarts
+* Can upload profile pictures and images of goods
 * Message to another users
 * Pull to refresh
 * Multiple markets available
 * Able to purchase/reserve items 
-* Logged in across restarts
 * Reviews for goods in the market
 * User can favorite specific goods and see the list on their home
 

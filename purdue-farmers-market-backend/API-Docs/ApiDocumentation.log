@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  6 APR 2022 17:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  18 APR 2022 17:15
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -507,14 +507,69 @@ Underfull \hbox (badness 10000) in paragraph at lines 328--332
 
  []
 
-[5] (./ApiDocumentation.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--348
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 355--369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--372
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 380--388
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 389--391
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--406
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--411
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 419--431
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 432--435
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--439
+
+ []
+
+[7] (./ApiDocumentation.aux)
 runsystem(rm ApiDocumentation.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
  6617 strings out of 478353
  119176 string characters out of 5854635
- 465886 words of memory out of 5000000
+ 469886 words of memory out of 5000000
  24648 multiletter control sequences out of 15000+600000
  405773 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -524,10 +579,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ApiDocumentation.pdf (5 pages, 89878 bytes).
+Output written on ApiDocumentation.pdf (7 pages, 93616 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

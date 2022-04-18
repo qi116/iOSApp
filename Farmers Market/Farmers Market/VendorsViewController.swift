@@ -45,9 +45,9 @@ class VendorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! VendorsViewCell
         let indexPath = tableView.indexPath(for:cell)!
-        let vendor = vendors[indexPath.row]
+        let vendorID = vendors[indexPath.row].id
         let detailsViewController = segue.destination as! VendorDetailController
-        detailsViewController.vendor = vendor
+        detailsViewController.vendorID = vendorID
         tableView.deselectRow(at: indexPath, animated: true)
 
     }

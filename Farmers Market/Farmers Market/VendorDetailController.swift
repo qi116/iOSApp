@@ -10,7 +10,7 @@ import UIKit
 class VendorDetailController: UIViewController {
 
     let api = APIGet()
-    var vendor: Vendor!
+    var vendorID = -1
     
     @IBOutlet weak var vendorBG: UIImageView!
     @IBOutlet weak var vendorProfile: UIImageView!
@@ -20,10 +20,17 @@ class VendorDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vendorName.text = vendor.name
-        vendorSlogan.text = vendor.slogan
-        vendorDescription.text = vendor.description
-        // Do any additional setup after loading the view.
+        api.getVendorInfo(id: vendorID,
+            success: { (vendor) in
+                DispatchQueue.main.sync {
+                    self.vendorName.text = vendor.name
+                    self.vendorSlogan.text = vendor.slogan
+                    self.vendorDescription.text = vendor.description
+                }
+            }, fail: { (error) in
+                print(error)
+            }
+        )
     }
 
 }

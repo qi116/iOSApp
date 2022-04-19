@@ -227,6 +227,10 @@ class APIGet {
         
         
     }
+    /*
+     * Accepts name, description, stock, and good_type of Good to be added
+     * Must be logged in to call.   
+     */
     func addGood(name: String, description: String = "", stock: Int = 0, good_type: Int = -1, success:@escaping () -> Void, fail: @escaping(String) -> Void) {
         self.request(
             link: "http://128.211.194.217:3000/api/goods/addgood",
@@ -242,6 +246,7 @@ class APIGet {
     }
     /*
      * If don't give search_name, then will return everything
+     * Accepts search name and returns list of Goods
      */
     func getGoods(search_name: String = "", success:@escaping ([Good]) -> Void, fail: @escaping(String) -> Void) {
         self.request(
@@ -270,6 +275,10 @@ class APIGet {
                 }
             })
     }
+    
+    /*
+     * Accepts good_id and returns Good object
+     */
     func getGoodInfo(id: Int, success:@escaping (Good) -> Void, fail: @escaping(String) -> Void) {
         self.request(
             link: "http://128.211.194.217:3000/api/goods/getgoodinfo",

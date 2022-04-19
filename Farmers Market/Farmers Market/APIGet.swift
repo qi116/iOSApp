@@ -227,5 +227,75 @@ class APIGet {
         
         
     }
+    func addGood(name: String, description: String = "", stock: Int = 0, good_type: Int = -1, success:@escaping () -> Void, fail: @escaping(String) -> Void) {
+        self.request(
+            link: "http://128.211.194.217:3000/api/goods/addgood",
+            json: ["session_full_code" : sessionId,"name": name, "description": description, "picture": "", "stock": stock, "good_type": good_type],
+            callback: { output in
+                if let val = output["errorCode"] {
+                        fail(val as! String)
+                }
+                else {
+                    success()
+                }
+            })
+    }
+    /*
+     * If don't give search_name, then will return everything
+     */
+    func getGoods(search_name: String = "", success:@escaping ([Good]) -> Void, fail: @escaping(String) -> Void) {
+        self.request(
+            link: "http://128.211.194.217:3000/api/goods/getgoods",
+            json: ["search_name" : search_name, "page_name": 0],
+            callback: { output in
+                var goods : [Good] = [];
+                if let list = output["data"] {
+                    
+                    for ven in (list as! [[String: Any]]) {
+                        var s = ven["stock"]
+                        
+                        if let st = s as? Int {
+                            
+                        } else {
+                            s = 0
+                        }
+                        
+                        let v = Good(g_id: ven["good_id"] as! Int, v_id: ven["vendor_id"] as! Int, desc: ven["description"] as! String, name: ven["name"] as! String, stock: s as! Int, good_type: ven["good_type"] as! Int);
+                        goods.append(v);
+                    }
+                    success(goods);
+                }
+                else {
+                    fail(output["error_code"] as! String);
+                }
+            })
+    }
+    func getGoodInfo(id: Int, success:@escaping (Good) -> Void, fail: @escaping(String) -> Void) {
+        self.request(
+            link: "http://128.211.194.217:3000/api/goods/getgoodinfo",
+            json: ["good_id": id],
+            callback: { output in
+                if let list = output["data"] {
+                    let ven = list as! [String: Any]
+                    var s = ven["stock"]
+                    
+
+                    if let st = s as? Int {
+                        
+                    } else {
+                        s = 0
+                    }
+                    
+                    let v = Good(g_id: ven["good_id"] as! Int, v_id: ven["vendor_id"] as! Int, desc: ven["description"] as! String, name: ven["name"] as! String, stock: s as! Int, good_type: ven["good_type"] as! Int);
+                    success(v);
+                }
+                
+                else {
+                    fail(output["error_code"] as! String)
+                }
+        })
+        
+        
+    }
     
 }

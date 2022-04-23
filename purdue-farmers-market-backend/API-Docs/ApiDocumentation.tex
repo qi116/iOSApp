@@ -440,15 +440,35 @@ AG-2: Exception - An unknown error happened while creating good. \\
 
 
 
+\paragraph{/goods/updategood}\textbf{}
 
+Updates a good's attributes to the database.
 
+\noindent
+Request Parameters:
 
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+good\_id & int & Yes & The id of the good to be changed. \\
+description & string & Yes & Description of Good. \\
+name & string & Yes & The name of the good. \\
+picture & string & Yes & A picture of the good. \\
+stock & int & Yes & The number of that good. \\
+good\_type & int & Yes & A value representing the good type. \\
+\hline
+\end{tabular} \\
 
+\noindent
 
+\noindent
+Response Parameters: \\
+None. Will return success if successful. \\
 
-
-
-
+\ErrorsSession
+UG-1: Failure - Inputted values are invalid. \\
+UG-2: Failure - Unable to edit good in the database. \\
 
 
 

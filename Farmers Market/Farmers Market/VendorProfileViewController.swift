@@ -29,23 +29,38 @@ class VendorProfileViewController: UIViewController {
             action: #selector(logout)
         )
         navigationItem.leftBarButtonItem = leftBarButtonItem
+        let rightBarButtonItem = UIBarButtonItem(
+            title: "Edit",
+            style: .plain,
+            target: self,
+            action: #selector(editProfile)
+        )
+        navigationItem.rightBarButtonItem = rightBarButtonItem
         // Do any additional setup after loading the view.
-//        api.getVendorInfo(id: vendorID,
-//                          success: { (vendor) in
-//            DispatchQueue.main.sync {
-//                self.nameLabel.text = vendor.name
-//                self.sloganLabel.text = vendor.slogan
-//                self.descriptionLabel.text = vendor.description
-//            }
-//        }, fail: { (error) in
-//            print(error)
-//        })
+        let vendorId = UserDefaults.standard.integer(forKey: "vendorId")
+        
+        api.getVendorInfo(id: vendorId,
+                          success: { (vendor) in
+            DispatchQueue.main.sync {
+                self.nameLabel.text = vendor.name
+                self.sloganLabel.text = vendor.slogan
+                self.descriptionLabel.text = vendor.description
+            }
+        }, fail: { (error) in
+            print(error)
+        })
+    }
+    
+    @objc private func editProfile(){
+        let nextVc = UIStoryboard.init(name: "Profile", bundle: Bundle.main).instantiateViewController(withIdentifier: "UpdateVendorSettings") as? UpdateVendorSettingsViewController
+        self.navigationController?.pushViewController(nextVc!, animated: true)
     }
     
     @objc private func logout(){
         api.logout(success: {
             UserDefaults.standard.set(false, forKey:"userLoggedIn")
             UserDefaults.standard.set("", forKey:"sessionId")
+            UserDefaults.standard.set(-1, forKey: "vendorId")
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
                 

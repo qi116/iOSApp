@@ -30,6 +30,22 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             print(error)
         })
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.delegate = self
+        tableView.dataSource = self
+        // Do any additional setup after loading the view.
+        api.getGoods(name: "", success:{ (items: [[String: Any]]) in
+            self.items = items
+            DispatchQueue.main.sync {
+                self.tableView.reloadData()
+            }
+            print("HA!")
+            print(self.items)
+        }, fail:{ error in
+            print(error)
+        })
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }

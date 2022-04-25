@@ -12,7 +12,8 @@ class APIGet {
 
     var sessionId = ""
     var isVendor = true
-    var userId = ""
+    var userId = 0
+    var vendorId = 0
     //URLRequest(url: url)
     //var request = URLRequest(url: url)
     
@@ -120,17 +121,36 @@ class APIGet {
      * Returns user id if succeeds. Returns "fail" if login failed
      */
 
-    func login(user: String, pass: String, success:@escaping (String) -> Void, fail: @escaping(String) -> Void){
+    func login(user: String, pass: String, success:@escaping ([String: Any]) -> Void, fail: @escaping(String) -> Void){
         self.request(
             link: "http://128.211.194.217:3000/api/user/login",
             json: ["email_address": user, "password": pass],
             callback: { output in
                 if let code = output["data"] {
+                    var userInfo : [String: Any] = [:]
                     self.sessionId = (code as! [String:Any])["session_full_code"] as! String
-//                    self.userId = (code as! [String:Any])["session_full_code"] as! Int)
-                    print(self.sessionId)
-                    print(self.isVendor)
-                    success(self.sessionId)
+                    self.userId = (code as! [String:Any])["user_id"] as! Int
+//                    let userType = (code as! [String:Any])["user_id"] as! String
+                    self.isVendor = ((code as! [String:Any])["user_type"] as! String == "vendor")
+                    if (self.isVendor){
+                        self.vendorId = (code as! [String:Any])["vendor_id"] as! Int
+                        userInfo["vendorId"] = self.vendorId
+                    }
+                    else{
+                        
+                    }
+                    print("Session id: " + self.sessionId)
+                    print(self.userId)
+                    if(self.isVendor){
+                        print("Is vendor: TRUE")
+                    }else{
+                        print("Is vendor: FALSE")
+                    }
+                    userInfo["sessionId"] = self.sessionId
+                    userInfo["userId"] = self.userId
+                    userInfo["isVendor"] = self.isVendor
+                    print(userInfo)
+                    success(userInfo)
                 }
                 else {
                     fail(output["errorCode"] as! String)
@@ -253,6 +273,27 @@ class APIGet {
         
     }
     
+    func updateVendorSettings(id: Int, description: String, longitude: Float, latitude: Float, slogan: String, success:@escaping () -> Void, fail: @escaping(String) -> Void){
+        self.request(
+            link: "http://128.211.194.217:3000/api/vendors/updatesettings",
+            json: ["vendor_id" : id, "description" : description, "background_picture": nil, "longitude": longitude, "latitude": latitude, "slogan": slogan, "session_full_code": self.sessionId],
+            callback: { output in
+                if let val = output["success"] {
+                    if ((val as! Int) == 1) {
+                        success()
+                        self.sessionId = ""
+                    }
+                    else {
+                        print("Failed to update")
+                        fail(output["errorCode"] as! String)
+                    }
+                }
+                
+            })
+    }
+    
 }
 
+
 //"http://128.211.194.217:3000/api/vendors/updatesettings"
+//"http://128.211.194.217:3000/api/user/getuserinfo"

@@ -40,7 +40,7 @@ export default wrapper.createHandlerWithSession(
         }
 
 		if(fields.length == 0) {
-			res.respondFail("UGS-1");
+			res.respondFail("UG-1");
 			return;
 		}
 
@@ -54,7 +54,7 @@ export default wrapper.createHandlerWithSession(
                 res.respondSuccess();
             })
             .catch((e) => {
-                res.respondException(e, "UGS-2");
+                res.respondException(e, "UG-2");
             });
     }
 );

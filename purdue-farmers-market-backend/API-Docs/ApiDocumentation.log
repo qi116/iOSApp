@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  18 APR 2022 17:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.2.23)  25 APR 2022 12:02
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -403,157 +403,147 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--150
  []
 
 
-Overfull \hbox (36.09142pt too wide) in paragraph at lines 154--163
+Overfull \hbox (36.09142pt too wide) in paragraph at lines 154--171
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--163
+Underfull \hbox (badness 10000) in paragraph at lines 154--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--186
+Underfull \hbox (badness 10000) in paragraph at lines 186--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--190
+Underfull \hbox (badness 10000) in paragraph at lines 195--198
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
 
  []
 
 
-Overfull \hbox (47.01224pt too wide) in paragraph at lines 203--217
+Overfull \hbox (47.01224pt too wide) in paragraph at lines 211--225
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--217
+Underfull \hbox (badness 10000) in paragraph at lines 211--225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--221
+Underfull \hbox (badness 10000) in paragraph at lines 226--229
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--244
+Underfull \hbox (badness 10000) in paragraph at lines 244--252
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--248
+Underfull \hbox (badness 10000) in paragraph at lines 253--256
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--268
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--271
+Underfull \hbox (badness 10000) in paragraph at lines 267--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--288
+Underfull \hbox (badness 10000) in paragraph at lines 280--283
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 289--291
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--309
+Underfull \hbox (badness 10000) in paragraph at lines 296--304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--312
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--327
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--332
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--348
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 349--351
+Underfull \hbox (badness 10000) in paragraph at lines 308--323
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 355--369
+Underfull \hbox (badness 10000) in paragraph at lines 342--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--372
+Underfull \hbox (badness 10000) in paragraph at lines 351--353
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--388
+Underfull \hbox (badness 10000) in paragraph at lines 357--370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--391
+Underfull \hbox (badness 10000) in paragraph at lines 371--373
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--406
+Underfull \hbox (badness 10000) in paragraph at lines 383--391
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--411
+Underfull \hbox (badness 10000) in paragraph at lines 392--394
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--432
+Underfull \hbox (badness 10000) in paragraph at lines 395--409
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 410--414
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 433--436
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--436
 
  []
 
@@ -562,14 +552,84 @@ Underfull \hbox (badness 10000) in paragraph at lines 437--440
 
  []
 
-[7] (./ApiDocumentation.aux)
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 463--471
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 472--474
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--492
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 493--495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 512--514
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--529
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 530--534
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 542--555
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 556--559
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--563
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--585
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 588--591
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 592--595
+
+ []
+
+[9] [10] (./ApiDocumentation.aux)
 runsystem(rm ApiDocumentation.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
  6617 strings out of 478353
  119176 string characters out of 5854635
- 469886 words of memory out of 5000000
+ 469888 words of memory out of 5000000
  24648 multiletter control sequences out of 15000+600000
  405773 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -579,10 +639,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ApiDocumentation.pdf (7 pages, 93743 bytes).
+Output written on ApiDocumentation.pdf (10 pages, 100043 bytes).
 PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 67 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

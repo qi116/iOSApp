@@ -74,7 +74,10 @@ And the response from the server would be
     needLogin: false,
     errorCode: null,
     data: {
-    	session_full_code: "1:facc853ea87acdf26852088777f33035"
+    	session_full_code: "1:facc853ea87acdf26852088777f33035",
+    	user_id: 1,
+    	email_address: "test@example.com",
+    	name: "User"
     }
 }
 \end{minted}
@@ -158,6 +161,14 @@ Response Parameters:
 \hline
 session\_full\_code & string & The session code used for accessing methods specific to the user you are logged in as. \\
 & & Store this code in order to access other api endpoints that require a session code. \\
+user\_id & int & The id of the user \\
+email\_address & string & The email address of the user \\
+name & string & The name of the user \\
+profile\_picture & blob & The profile picture of the user \\
+phone\_number & string & The phone number of the user \\
+user\_type & string & The type of the user will be either "vendor" or "customer" \\
+user\_is\_vendor & int & Represents if the user is a vendor (1 if so) \\
+vendor\_id & int & The vendor id of the user, if applicable \\
 \hline
 \end{tabular} \\
 
@@ -249,6 +260,80 @@ None. Will return success if successful. \\
 \ErrorsSession
 
 
+\paragraph{/user/updatesettings}\textbf{}
+
+Used to update the settings of the user that sends the request. Used for changing name, profile picture, etc. \\
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+session\_full\_code & string & Yes & The session code for the session you wish to use \\
+email\_address & string & No & The new email address of the user \\
+name & string & No & The new name for the user \\
+profile\_picture & blob & No & The new profile picture for the user \\
+phone\_number & string & No & The new phone number for the user \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters: \\
+None. Will return success if successful. \\
+
+\ErrorsSession
+UUS-1: Failure - Didn't give any fields to update (must have atleast 1)
+UUS-2: Exception - An unknown error occurred in updating the settings.
+
+
+\paragraph{/user/getuserinfo}\textbf{}
+
+Used to get the information of a specific user. \\
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+user\_id & int & Yes & The id of the user you wish to get the information of. \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Notes} \\
+\hline
+user\_id & int & The id of the user \\
+email\_address & string & The email address of the user \\
+name & string & The name of the user \\
+profile\_picture & blob & The profile picture of the user \\
+phone\_number & string & The phone number of the user \\
+user\_type & string & The type of the user. Will only be "vendor" $\vert$ "customer" \\
+user\_is\_vendor & int & Represents if the user is a vendor (1 if so) \\
+vendor\_id & int & The vendor id of the user, if applicable \\
+\hline
+\end{tabular} \\
+
+\ErrorsSession
+UUS-1: Failure - Didn't give any fields to update (must have atleast 1)
+UUS-2: Exception - An unknown error occurred in updating the settings.
+
+
+\newpage
+
+\paragraph{/vendors}\textbf{ (Directory) }
+
+All API endpoints related to vendors will go here. Including account managemenet for vendors and general vendor information requests.
 
 \paragraph{/vendors/getvendors}\textbf{}
 
@@ -329,6 +414,47 @@ latitude & double & The latitude of the vendor. \\
 GV-1: Failure - No vendor id was given. \\
 GV-2: Failure - The given vendor id does not correspond to a vendor. \\
 GV-3: Exception - An unknown error occurred in getting the vendor information. \\
+
+
+\paragraph{/vendors/updatesettings}\textbf{}
+
+Used to update the settings of the vendor that sends the request. Used for changing slogan, description, background picture, etc. \\
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+session\_full\_code & string & Yes & The session code for the session you wish to use \\
+description & string & No & The new description for the vendor \\
+background\_picture & string & No & The new background picture for the vendor \\
+longitude & blob & No & The new longitude for the vendor \\
+latitude & string & No & The new latitude for the vendor \\
+slogan & string & No & The new slogan for the vendor \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters: \\
+None. Will return success if successful. \\
+
+\ErrorsSession
+VUS-1: Failure - User is not a vendor.
+VUS-2: Failure - Didn't give any fields to update (must have atleast 1)
+VUS-3: Exception - The user doesn't seem to exist, even though they are supposed to be a vendor.
+VUS-4: Exception - An unknown error occurred in updating the settings.
+VUS-5: Exception - An unknown error occurred.
+
+
+
+\newpage
+
+\paragraph{/goods}\textbf{ (Directory) }
+
+All API endpoints related to goods that are sold by a vendor will go here. A vendor will send their goods with /vendor/getvendorinfo, but this can be used for general good lists, information, and management.
 
 \paragraph{/goods/getgoods}\textbf{}
 
@@ -467,8 +593,8 @@ Response Parameters: \\
 None. Will return success if successful. \\
 
 \ErrorsSession
-UG-1: Failure - Inputted values are invalid. \\
-UG-2: Failure - Unable to edit good in the database. \\
+UG-1: Failure - No values were found. Must input atleast one. \\
+UG-2: Exception - Unable to edit good in the database. \\
 
 
 

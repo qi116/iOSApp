@@ -330,16 +330,145 @@ GV-1: Failure - No vendor id was given. \\
 GV-2: Failure - The given vendor id does not correspond to a vendor. \\
 GV-3: Exception - An unknown error occurred in getting the vendor information. \\
 
+\paragraph{/goods/getgoods}\textbf{}
+
+Gets a list of all of the goods. If the search name is specified, it will filter it.
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+name & string & Yes & The name to filter goods by. \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters: \\
+
+\noindent
+The response will be an array containing goods with the follow structure.
+
+\noindent
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Notes} \\
+\hline
+good\_id & number & The Good's id. \\
+vendor\_id & number & The id of the good's vendor. \\
+description & string & The description of the good. \\
+name & string & The name of the good. \\
+stock & number & The stock of the good. \\
+picture & blob & The picture of the good. \\
+good\_type & number & Number representing type of good. \\
+\hline
+\end{tabular} \\
+
+\ErrorsSession
+GG-1: Exception - An unknown error occurred in getting the list of goods. \\
+
+\paragraph{/goods/getgoodinfo}\textbf{}
+
+Gets the information for a specific good by its id.
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+good\_id & int & Yes & The id of the good to get its information. \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters: \\
+
+\noindent
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Notes} \\
+\hline
+good\_id & number & The Good's id. \\
+vendor\_id & number & The id of the good's vendor. \\
+description & string & The description of the good. \\
+name & string & The name of the good. \\
+stock & number & The stock of the good. \\
+picture & blob & The picture of the good. \\
+good\_type & number & Number representing type of good. \\
+\hline
+\end{tabular} \\
+
+\ErrorsSession
+GGI-1: Failure - No good\_id was given. \\
+GGI-2: Failure - The given good id does not correspond to a good. \\
+GGI-3: Exception - An unknown error occurred in getting the good information. \\
+
+\paragraph{/goods/addgood}\textbf{}
+
+Adds a good to the database.
+
+\noindent
+Request Parameters:
+
+\noindent
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+session\_full\_code & string & Yes & The code for the session of the vendor adding the good. \\
+name & string & Yes & Name of the good. \\
+description & string & Yes & A description of the good. \\
+picture & string & Yes & A picture of the good. \\
+stock & int & Yes & The number of that good. \\
+good\_type & int & Yes & A value representing the good type. \\
+\hline
+\end{tabular} \\
+
+\noindent
+Response Parameters: \\
+None. Will return success if successful. \\
+
+\ErrorsSession
+AG-1: Failure - The name or description is invalid. \\
+AG-2: Exception - An unknown error happened while creating good. \\
 
 
 
+\paragraph{/goods/updategood}\textbf{}
 
+Updates a good's attributes to the database.
 
+\noindent
+Request Parameters:
 
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Required} & \textbf{Notes} \\
+\hline
+good\_id & int & Yes & The id of the good to be changed. \\
+description & string & Yes & Description of Good. \\
+name & string & Yes & The name of the good. \\
+picture & string & Yes & A picture of the good. \\
+stock & int & Yes & The number of that good. \\
+good\_type & int & Yes & A value representing the good type. \\
+\hline
+\end{tabular} \\
 
+\noindent
 
+\noindent
+Response Parameters: \\
+None. Will return success if successful. \\
 
-
+\ErrorsSession
+UG-1: Failure - Inputted values are invalid. \\
+UG-2: Failure - Unable to edit good in the database. \\
 
 
 

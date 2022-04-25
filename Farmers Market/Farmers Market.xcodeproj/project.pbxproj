@@ -17,9 +17,10 @@
 		ADABBEFB2802351F00D8775A /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADABBEFA2802351F00D8775A /* Message.storyboard */; };
 		ADABBEFD2802352D00D8775A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADABBEFC2802352D00D8775A /* Profile.storyboard */; };
 		ADABBEFF2803CA5200D8775A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABBEFE2803CA5200D8775A /* LoginViewController.swift */; };
-		ADABBF012803D08800D8775A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABBF002803D08800D8775A /* ProfileTableViewController.swift */; };
 		ADABBF052803D62700D8775A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABBF042803D62700D8775A /* RegisterViewController.swift */; };
 		ADC0544028053B1B00B6627D /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC0543F28053B1B00B6627D /* Vendor.swift */; };
+		ADF99E50280D113700D76521 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF99E4F280D113700D76521 /* ItemCell.swift */; };
+		ADF99E54280D147A00D76521 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF99E53280D147A00D76521 /* ItemsViewController.swift */; };
 		ADF99E4C280D0C4B00D76521 /* VendorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF99E4B280D0C4B00D76521 /* VendorProfileViewController.swift */; };
 		D35C6B4427F2581A00578BA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C6B4327F2581A00578BA8 /* AppDelegate.swift */; };
 		D35C6B4627F2581A00578BA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C6B4527F2581A00578BA8 /* SceneDelegate.swift */; };
@@ -39,9 +40,10 @@
 		ADABBEFA2802351F00D8775A /* Message.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
 		ADABBEFC2802352D00D8775A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		ADABBEFE2803CA5200D8775A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		ADABBF002803D08800D8775A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		ADABBF042803D62700D8775A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ADC0543F28053B1B00B6627D /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
+		ADF99E4F280D113700D76521 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		ADF99E53280D147A00D76521 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		ADF99E4B280D0C4B00D76521 /* VendorProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorProfileViewController.swift; sourceTree = "<group>"; };
 		D35C6B4027F2581A00578BA8 /* Farmers Market.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farmers Market.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35C6B4327F2581A00578BA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				ADABBEF62802350600D8775A /* Items.storyboard */,
+				ADF99E4F280D113700D76521 /* ItemCell.swift */,
+				ADF99E53280D147A00D76521 /* ItemsViewController.swift */,
 			);
 			name = ItemsTab;
 			path = "Farmers Market";
@@ -239,8 +243,9 @@
 			files = (
 				ADF99E4C280D0C4B00D76521 /* VendorProfileViewController.swift in Sources */,
 				D35C6B4427F2581A00578BA8 /* AppDelegate.swift in Sources */,
+				ADF99E54280D147A00D76521 /* ItemsViewController.swift in Sources */,
 				ADC0544028053B1B00B6627D /* Vendor.swift in Sources */,
-				ADABBF012803D08800D8775A /* ProfileTableViewController.swift in Sources */,
+				ADF99E50280D113700D76521 /* ItemCell.swift in Sources */,
 				AD80BABF27FA8E9E0060EA97 /* APIGet.swift in Sources */,
 				66B9194F280CD0BE00401ECC /* VendorsViewController.swift in Sources */,
 				ADABBF052803D62700D8775A /* RegisterViewController.swift in Sources */,
@@ -324,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -379,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

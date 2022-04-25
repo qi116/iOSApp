@@ -12,15 +12,29 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let backBarButtonItem = UIBarButtonItem(
+            title: "Back to Login",
+            style: .plain,
+            target: self,
+            action: #selector(logout)
+        )
+        navigationItem.backBarButtonItem = backBarButtonItem
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
-            self.performSegue(withIdentifier: "automaticToProfile", sender: self)
-        }
+    @objc private func logout(){
+        UserDefaults.standard.set(false, forKey:"userLoggedIn")
+        self.navigationController?.popViewController(animated: true)
     }
+    
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
+//            let nextVc = UIStoryboard.init(name: "Profile", bundle: Bundle.main).instantiateViewController(withIdentifier: "VendorProfile") as? VendorProfileViewController
+//            self.navigationController?.pushViewController(nextVc!, animated: true)
+//        }
+//    }
     
     @IBOutlet weak var usernameField: UITextField!
     
@@ -37,12 +51,14 @@ class LoginViewController: UIViewController {
         
         api.login(user: email, pass: pass, success: {
             UserDefaults.standard.set(true, forKey:"userLoggedIn")
+            
             DispatchQueue.main.async {
-                UserDefaults.standard.set(self.api.sessionId, forKey: "sessionId")
-                self.performSegue(withIdentifier: "toTest", sender: self)
 //                self.performSegue(withIdentifier: "loginToProfile", sender: self)
+                let nextVc = UIStoryboard.init(name: "Profile", bundle: Bundle.main).instantiateViewController(withIdentifier: "VendorProfile") as? VendorProfileViewController
+                self.navigationController?.pushViewController(nextVc!, animated: true)
             }
             
+            print("success")
         }, fail: { output in
             print(output)
         })

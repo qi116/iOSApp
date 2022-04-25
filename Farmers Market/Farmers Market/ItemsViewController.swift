@@ -38,21 +38,26 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         
         let item = items[indexPath.row]
-        let name = item["name"] as! String;
-        let description = item["description"] as! String;
+        let name = item["name"] as! String
+        let description = item["description"] as! String
+        var stock: Int = item["stock"] as? Int ?? 0
+        if stock < 0 {
+            stock = 0
+        }
         cell.itemNameLabel.text = name
         cell.descriptionLabel.text = description
+        cell.stockLabel.text = String(stock) + " Units"
         
         return cell
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        let cell = sender as! ItemCell
+        let indexPath = tableView.indexPath(for:cell)!
+        let item = items[indexPath.row]
+        let vendorID = item["vendor_id"] as! Int
+        let detailsViewController = segue.destination as! VendorDetailController
+        detailsViewController.vendorID = vendorID
+        tableView.deselectRow(at: indexPath, animated: true)
 
+    }
 }

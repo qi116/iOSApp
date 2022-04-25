@@ -51,6 +51,38 @@ class VendorProfileViewController: UIViewController {
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.title = "Profile"
+        api.sessionId = UserDefaults.standard.string(forKey: "sessionId")!
+        let leftBarButtonItem = UIBarButtonItem(
+            title: "Logout",
+            style: .plain,
+            target: self,
+            action: #selector(logout)
+        )
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        let rightBarButtonItem = UIBarButtonItem(
+            title: "Edit",
+            style: .plain,
+            target: self,
+            action: #selector(editProfile)
+        )
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+        // Do any additional setup after loading the view.
+        let vendorId = UserDefaults.standard.integer(forKey: "vendorId")
+        
+        api.getVendorInfo(id: vendorId,
+                          success: { (vendor) in
+            DispatchQueue.main.sync {
+                self.nameLabel.text = vendor.name
+                self.sloganLabel.text = vendor.slogan
+                self.descriptionLabel.text = vendor.description
+            }
+        }, fail: { (error) in
+            print(error)
+        })
+    }
+    
     @objc private func editProfile(){
         let nextVc = UIStoryboard.init(name: "Profile", bundle: Bundle.main).instantiateViewController(withIdentifier: "UpdateVendorSettings") as? UpdateVendorSettingsViewController
         self.navigationController?.pushViewController(nextVc!, animated: true)

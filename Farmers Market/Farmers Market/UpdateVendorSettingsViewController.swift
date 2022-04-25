@@ -42,10 +42,10 @@ class UpdateVendorSettingsViewController: UIViewController {
         var longitude = Float(longitudeTextField.text!)
         var latitude = Float(latitudeTextField.text!)
         
-        description = "I am changed"
-        slogan = "I am refreshed"
-        longitude = 40.42487
-        latitude = -86.91473
+//        description = "I am changed"
+//        slogan = "I am refreshed"
+//        longitude = 40.42487
+//        latitude = -86.91473
 //        longitude = 40.42527650418596
 //        latitude = -86.91392456010239
         api.updateVendorSettings(id: vendorId, description: description, longitude: longitude!, latitude: latitude!, slogan: slogan!, success: {

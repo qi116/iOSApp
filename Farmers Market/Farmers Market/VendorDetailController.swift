@@ -50,6 +50,34 @@ class VendorDetailController: UIViewController, UITableViewDelegate, UITableView
             print(error)
         })
     }
+    override func viewDidAppear(_ animated: Bool) {
+        api.getVendorInfo(id: vendorID,
+            success: { (vendor) in
+                DispatchQueue.main.sync {
+                    self.vendorName.text = vendor.name
+                    self.vendorSlogan.text = vendor.slogan
+                    self.vendorDescription.text = vendor.description
+                    self.vendorID = vendor.id
+                }
+            }, fail: { (error) in
+                print(error)
+            }
+        )
+        api.getGoods(name: "", success:{ (items: [[String: Any]]) in
+            for item in (items as [[String:Any]]) {
+                let itemVendorID: Int = item["vendor_id"] as? Int ?? -1
+                if itemVendorID == self.vendorID {
+                    self.items.append(item)
+                }
+            }
+            DispatchQueue.main.sync {
+                self.tableView.reloadData()
+            }
+            print(self.items)
+        }, fail:{ error in
+            print(error)
+        })
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }

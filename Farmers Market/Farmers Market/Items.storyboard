@@ -125,7 +125,7 @@
         <scene sceneID="hDQ-k1-t7l">
             <objects>
                 <navigationController storyboardIdentifier="ItemsHome" title="ItemsHome" id="NcK-vF-nwf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Items" image="suit.club.fill" catalog="system" id="7eR-TK-ReF"/>
+                    <tabBarItem key="tabBarItem" title="Items" image="tray.full.fill" catalog="system" id="7eR-TK-ReF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VQC-z3-OoZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -142,7 +142,7 @@
     </scenes>
     <resources>
         <image name="freshproduce" width="640" height="638"/>
-        <image name="suit.club.fill" catalog="system" width="128" height="121"/>
+        <image name="tray.full.fill" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -248,7 +248,7 @@
         <scene sceneID="dB8-Di-dzx">
             <objects>
                 <navigationController storyboardIdentifier="VendorsHome" automaticallyAdjustsScrollViewInsets="NO" id="qhV-So-aRs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Vendors" id="QBr-wT-KM6"/>
+                    <tabBarItem key="tabBarItem" title="Vendors" image="suit.spade.fill" catalog="system" id="QBr-wT-KM6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ooo-HO-9U3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -268,6 +268,7 @@
         <image name="burst" catalog="system" width="128" height="115"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>
+        <image name="suit.spade.fill" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

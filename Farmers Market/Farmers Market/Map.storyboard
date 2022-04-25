@@ -30,7 +30,7 @@
                             <constraint firstItem="Ung-w5-FUL" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="mMg-l0-Jx5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="Yne-it-7CK"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map.fill" catalog="system" id="Yne-it-7CK"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="map" destination="Ung-w5-FUL" id="3ND-Y5-nwT"/>
@@ -42,6 +42,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

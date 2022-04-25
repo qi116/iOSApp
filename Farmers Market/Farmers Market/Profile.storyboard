@@ -232,7 +232,7 @@
         <scene sceneID="O1B-zl-WT0">
             <objects>
                 <navigationController storyboardIdentifier="ProflieHome" title="ProflieHome" automaticallyAdjustsScrollViewInsets="NO" id="rsj-qm-VHf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="Kar-ps-Ls6"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle.fill" catalog="system" id="Kar-ps-Ls6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="0xE-xM-yl4">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -254,6 +254,7 @@
     <resources>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

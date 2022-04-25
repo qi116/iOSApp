@@ -11,6 +11,8 @@ import UIKit
 class APIGet {
 
     var sessionId = ""
+    var isVendor = true
+    var userId = ""
     //URLRequest(url: url)
     //var request = URLRequest(url: url)
     
@@ -118,14 +120,17 @@ class APIGet {
      * Returns user id if succeeds. Returns "fail" if login failed
      */
 
-    func login(user: String, pass: String, success:@escaping () -> Void, fail: @escaping(String) -> Void){
+    func login(user: String, pass: String, success:@escaping (String) -> Void, fail: @escaping(String) -> Void){
         self.request(
             link: "http://128.211.194.217:3000/api/user/login",
             json: ["email_address": user, "password": pass],
             callback: { output in
                 if let code = output["data"] {
                     self.sessionId = (code as! [String:Any])["session_full_code"] as! String
-                    success()
+//                    self.userId = (code as! [String:Any])["session_full_code"] as! Int)
+                    print(self.sessionId)
+                    print(self.isVendor)
+                    success(self.sessionId)
                 }
                 else {
                     fail(output["errorCode"] as! String)
@@ -249,3 +254,5 @@ class APIGet {
     }
     
 }
+
+//"http://128.211.194.217:3000/api/vendors/updatesettings"

@@ -11,6 +11,7 @@
 		66B9194F280CD0BE00401ECC /* VendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B9194E280CD0BE00401ECC /* VendorsViewController.swift */; };
 		66B91951280CD6C600401ECC /* VendorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B91950280CD6C600401ECC /* VendorDetailController.swift */; };
 		AD5AE40E28164C0D00715FDC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AE40D28164C0D00715FDC /* MapViewController.swift */; };
+		AD5AE41028165BA200715FDC /* CustomerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AE40F28165BA200715FDC /* CustomerProfileViewController.swift */; };
 		AD80BABF27FA8E9E0060EA97 /* APIGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80BABE27FA8E9E0060EA97 /* APIGet.swift */; };
 		ADABBEF5280234FA00D8775A /* Vendors.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADABBEF4280234FA00D8775A /* Vendors.storyboard */; };
 		ADABBEF72802350600D8775A /* Items.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADABBEF62802350600D8775A /* Items.storyboard */; };
@@ -35,6 +36,7 @@
 		66B9194E280CD0BE00401ECC /* VendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorsViewController.swift; sourceTree = "<group>"; };
 		66B91950280CD6C600401ECC /* VendorDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorDetailController.swift; sourceTree = "<group>"; };
 		AD5AE40D28164C0D00715FDC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AD5AE40F28165BA200715FDC /* CustomerProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerProfileViewController.swift; sourceTree = "<group>"; };
 		AD80BABE27FA8E9E0060EA97 /* APIGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIGet.swift; sourceTree = "<group>"; };
 		ADABBEF4280234FA00D8775A /* Vendors.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vendors.storyboard; sourceTree = "<group>"; };
 		ADABBEF62802350600D8775A /* Items.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Items.storyboard; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				ADABBEFE2803CA5200D8775A /* LoginViewController.swift */,
 				ADABBF042803D62700D8775A /* RegisterViewController.swift */,
 				ADF99E4B280D0C4B00D76521 /* VendorProfileViewController.swift */,
+				AD5AE40F28165BA200715FDC /* CustomerProfileViewController.swift */,
 			);
 			name = ProfileTab;
 			path = "Farmers Market";
@@ -249,6 +252,7 @@
 				ADC0544028053B1B00B6627D /* Vendor.swift in Sources */,
 				ADF99E50280D113700D76521 /* ItemCell.swift in Sources */,
 				AD80BABF27FA8E9E0060EA97 /* APIGet.swift in Sources */,
+				AD5AE41028165BA200715FDC /* CustomerProfileViewController.swift in Sources */,
 				AD5AE40E28164C0D00715FDC /* MapViewController.swift in Sources */,
 				66B9194F280CD0BE00401ECC /* VendorsViewController.swift in Sources */,
 				ADABBF052803D62700D8775A /* RegisterViewController.swift in Sources */,

@@ -13,20 +13,28 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backBarButtonItem = UIBarButtonItem(
-            title: "Logout",
-            style: .plain,
-            target: self,
-            action: #selector(logout)
-        )
-        navigationItem.backBarButtonItem = backBarButtonItem
+//        let backBarButtonItem = UIBarButtonItem(
+//            title: "Logout",
+//            style: .plain,
+//            target: self,
+//            action: #selector(logout)
+//        )
+//        navigationItem.backBarButtonItem = backBarButtonItem
         // Do any additional setup after loading the view.
     }
     
-    @objc private func logout(){
-        UserDefaults.standard.set(false, forKey:"userLoggedIn")
-        self.navigationController?.popViewController(animated: true)
-    }
+//    @objc private func logout(){
+//        api.logout(success: {
+//            UserDefaults.standard.set(false, forKey:"userLoggedIn")
+//            UserDefaults.standard.set("", forKey:"sessionId")
+//            self.navigationController?.popViewController(animated: true)
+//            print("logout success")
+//        }, fail: { output in
+//            print(output)
+//
+//        })
+//
+//    }
     
     
 //    override func viewDidAppear(_ animated: Bool) {
@@ -37,7 +45,6 @@ class LoginViewController: UIViewController {
 //    }
     
     @IBOutlet weak var usernameField: UITextField!
-    
     @IBOutlet weak var passwordField: UITextField!
     
     @IBAction func onLogin(_ sender: Any) {
@@ -49,15 +56,18 @@ class LoginViewController: UIViewController {
         email = "test"
         pass = "test"
         
-        api.login(user: email, pass: pass, success: {
+//        let nextVc = UIStoryboard.init(name: "Profile", bundle: Bundle.main).instantiateViewController(withIdentifier: "VendorProfile") as? VendorProfileViewController
+//        self.navigationController?.pushViewController(nextVc!, animated: true)
+        
+        api.login(user: email, pass: pass, success: { output in
             UserDefaults.standard.set(true, forKey:"userLoggedIn")
-            
+            UserDefaults.standard.set(output, forKey:"sessionId")
             DispatchQueue.main.async {
 //                self.performSegue(withIdentifier: "loginToProfile", sender: self)
                 let nextVc = UIStoryboard.init(name: "Profile", bundle: Bundle.main).instantiateViewController(withIdentifier: "VendorProfile") as? VendorProfileViewController
                 self.navigationController?.pushViewController(nextVc!, animated: true)
             }
-            
+
             print("success")
         }, fail: { output in
             print(output)

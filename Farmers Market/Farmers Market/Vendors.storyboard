@@ -97,13 +97,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b4Q-RC-OWM" userLabel="VendorBackground">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b4Q-RC-OWM" userLabel="VendorBackground">
                                 <rect key="frame" x="20" y="89" width="382" height="112"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="b4Q-RC-OWM" secondAttribute="height" multiplier="10:3" id="BBh-d5-4Ia"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OLC-il-8L3" userLabel="ProfilePicture">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OLC-il-8L3" userLabel="ProfilePicture">
                                 <rect key="frame" x="20" y="189" width="130" height="127"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="F94-Cr-lzx"/>

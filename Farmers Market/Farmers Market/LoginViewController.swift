@@ -12,13 +12,27 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let backBarButtonItem = UIBarButtonItem(
+            title: "Back to Login",
+            style: .plain,
+            target: self,
+            action: #selector(logout)
+        )
+        navigationItem.backBarButtonItem = backBarButtonItem
         // Do any additional setup after loading the view.
     }
     
+    @objc private func logout(){
+        UserDefaults.standard.set(false, forKey:"userLoggedIn")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 //    override func viewDidAppear(_ animated: Bool) {
 //        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
-//            self.performSegue(withIdentifier: "loginToProfile", sender: self)
+//            let nextVc = UIStoryboard.init(name: "Profile", bundle: Bundle.main).instantiateViewController(withIdentifier: "VendorProfile") as? VendorProfileViewController
+//            self.navigationController?.pushViewController(nextVc!, animated: true)
 //        }
 //    }
     
@@ -36,12 +50,12 @@ class LoginViewController: UIViewController {
         pass = "test"
 
         api.login(user: email, pass: pass, success: {
-//            UserDefaults.standard.set(true, forKey:"userLoggedIn")
+            UserDefaults.standard.set(true, forKey:"userLoggedIn")
             
             DispatchQueue.main.async {
 //                self.performSegue(withIdentifier: "loginToProfile", sender: self)
-                let nextVc = VendorProfileViewController()
-                self.navigationController?.pushViewController(nextVc, animated: true)
+                let nextVc = UIStoryboard.init(name: "Profile", bundle: Bundle.main).instantiateViewController(withIdentifier: "VendorProfile") as? VendorProfileViewController
+                self.navigationController?.pushViewController(nextVc!, animated: true)
             }
             
             print("success")

@@ -9,10 +9,34 @@ import UIKit
 
 class VendorProfileViewController: UIViewController {
 
+    let api = APIGet()
+    var vendorID = -1
+    
+    @IBOutlet weak var backgroundView: UIImageView!
+    @IBOutlet weak var profilePictureView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var sloganLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBAction func onLogout(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        UserDefaults.standard.set(false, forKey:"userLoggedIn")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.title = "Profile"
+        
         // Do any additional setup after loading the view.
+//        api.getVendorInfo(id: vendorID,
+//                          success: { (vendor) in
+//            DispatchQueue.main.sync {
+//                self.nameLabel.text = vendor.name
+//                self.sloganLabel.text = vendor.slogan
+//                self.descriptionLabel.text = vendor.description
+//            }
+//        }, fail: { (error) in
+//            print(error)
+//        })
     }
     
 

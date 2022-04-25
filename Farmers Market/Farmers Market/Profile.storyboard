@@ -118,22 +118,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7r-If-3iT">
-                                <rect key="frame" x="20" y="294" width="374" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi! My name is Robert. My carrot is the best in town!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7r-If-3iT">
+                                <rect key="frame" x="20" y="294" width="374" height="311"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="backButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izF-yJ-PKR">
-                                <rect key="frame" x="327" y="404" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="onLogout:" destination="D6N-nC-dC0" eventType="touchUpInside" id="piz-BN-rWz"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Carrot is the best!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpV-rD-b6a">
                                 <rect key="frame" x="128" y="250" width="266" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -237,60 +228,6 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="936.83035714285711"/>
         </scene>
-        <!--ProfileTableViewController-->
-        <scene sceneID="Nh9-rK-jk2">
-            <objects>
-                <tableViewController title="ProfileTableViewController" modalPresentationStyle="fullScreen" id="h1R-2w-qbs" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="NN9-Zq-xE1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="198" id="CUK-Vf-abs">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="198"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CUK-Vf-abs" id="KPg-U3-a4q">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="198"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Bb-J7-gfh">
-                                            <rect key="frame" x="169" y="88" width="76" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="76" id="cDT-2u-dEa"/>
-                                                <constraint firstAttribute="height" constant="21" id="mWF-Z4-v9e"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="3Bb-J7-gfh" firstAttribute="top" secondItem="KPg-U3-a4q" secondAttribute="topMargin" constant="77" id="9nq-DO-hbX"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="3Bb-J7-gfh" secondAttribute="bottom" constant="78" id="GxG-NQ-fD6"/>
-                                        <constraint firstItem="3Bb-J7-gfh" firstAttribute="leading" secondItem="KPg-U3-a4q" secondAttribute="leadingMargin" constant="149" id="X1b-Fh-jbG"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="3Bb-J7-gfh" secondAttribute="trailing" constant="149" id="zag-GG-utA"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="h1R-2w-qbs" id="aeL-CY-feo"/>
-                            <outlet property="delegate" destination="h1R-2w-qbs" id="mBY-IJ-loV"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="IG6-P6-dc2">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="iE7-XP-s6P">
-                            <color key="tintColor" systemColor="tintColor"/>
-                            <connections>
-                                <action selector="onLogout:" destination="h1R-2w-qbs" id="253-an-2Nq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EqP-jz-2yS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1203" y="816"/>
-        </scene>
         <!--ProflieHome-->
         <scene sceneID="O1B-zl-WT0">
             <objects>
@@ -322,6 +259,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

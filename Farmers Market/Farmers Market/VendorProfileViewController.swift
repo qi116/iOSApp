@@ -18,10 +18,6 @@ class VendorProfileViewController: UIViewController {
     @IBOutlet weak var sloganLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    @IBAction func onLogout(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        UserDefaults.standard.set(false, forKey:"userLoggedIn")
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.title = "Profile"

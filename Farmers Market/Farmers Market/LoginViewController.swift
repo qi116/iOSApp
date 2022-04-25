@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         let backBarButtonItem = UIBarButtonItem(
-            title: "Back to Login",
+            title: "Logout",
             style: .plain,
             target: self,
             action: #selector(logout)
